@@ -11135,3 +11135,85 @@ footer.footer .social-link:hover {
     .carousel-control-next-icon::after {
         font-size: 2rem; /* Increase the arrow icon size */
     }
+
+
+.uniform-card {
+  height: 400px; /* Adjust based on your content */
+  display: flex;
+  align-items: stretch; /* Ensures the card stretches to fill the height */
+}
+
+.card-img {
+  height: 200px; /* Makes all images take the full height of the card's column */
+  width: 100%; /* Adjusts width to maintain aspect ratio */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns content nicely within the card */
+}
+
+
+
+
+
+
+
+.navbar {
+    background-color: transparent !important; /* Transparent background for wide screens */
+    border: none;
+    font-family: 'Roboto', sans-serif; /* Apply custom font */
+    font-weight: 700; /* Make the font bold */
+    font-size: 1.2rem; /* Increase the font size */
+}
+
+.navbar .nav-link {
+    color: white; /* Initial text color */
+    font-size: 1.2rem; /* Increase the font size */
+    font-weight: 700; /* Make the font bold */
+    padding: 10px 15px; /* Adjust padding for larger clickable area */
+}
+
+.navbar .nav-link:hover {
+    color: white; /* Text color on hover */
+    background-color: #218bad; /* Background color on hover */
+    border-radius: 5px; /* Add rounded corners for the background */
+}
+
+.navbar .navbar-brand {
+    color: white; /* Initial brand color */
+    font-size: 2rem; /* Increase the font size for brand text */
+    font-weight: 700; /* Make the font bold */
+}
+
+.navbar .navbar-brand:hover {
+    color: whitesmoke; /* Brand text color on hover */
+}
+
+/* For the icon */
+.navbar-toggler {
+    border: none; /* Remove border */
+}
+
+.navbar-toggler:hover {
+    background-color: #218bad; /* Background color on hover */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+/* Media query for small screens */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #218bad; /* Background color for dropdown on small screens */
+    }
+
+    .navbar-collapse .nav-link {
+        color: white !important; /* Ensure text remains white in the dropdown */
+    }
+
+    .navbar-collapse .nav-link:hover {
+        color: whitesmoke!important; /* Text color on hover in the dropdown */
+        background-color: #218bad; /* Keep the same background color */
+    }
+}
