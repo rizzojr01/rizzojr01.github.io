@@ -11006,6 +11006,29 @@ footer.footer .social-link:hover {
     height: 75%;
   }
 }
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure it stays behind content */
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
 .masthead {
   min-height: 30rem;
   position: relative;
@@ -11204,16 +11227,80 @@ footer.footer .social-link:hover {
 
 /* Media query for small screens */
 @media (max-width: 992px) {
-    .navbar-collapse {
-        background-color: #218bad; /* Background color for dropdown on small screens */
-    }
-
-    .navbar-collapse .nav-link {
-        color: white !important; /* Ensure text remains white in the dropdown */
-    }
-
-    .navbar-collapse .nav-link:hover {
-        color: whitesmoke!important; /* Text color on hover in the dropdown */
-        background-color: #218bad; /* Keep the same background color */
-    }
+.navbar-collapse {
+    background-color: #218bad; /* Background color for dropdown on small screens */
 }
+
+.navbar-collapse .nav-link {
+    color: white !important; /* Ensure text remains white in the dropdown */
+}
+
+.navbar-collapse .nav-link:hover {
+    color: whitesmoke!important; /* Text color on hover in the dropdown */
+    background-color: #218bad; /* Keep the same background color */
+}
+}
+
+
+
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 30% of the viewport height */
+    overflow: hidden;
+}
+
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content over the video */
+.contenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 5px; /* Optional for rounded corners */
+    width: 80%; /* Adjust this value for desired width */
+    max-width: 800px; /* Optional to control the max width */
+}
+
+.contenter h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.contenter h2 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.contenter button {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    background-color: #17667f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.contenter button:hover {
+    background-color: #155d72;
+}
+
+/* Scrollable page content below the video */
+.next-section {
+
+    background-color: #f4f4f4;
+
+}
+

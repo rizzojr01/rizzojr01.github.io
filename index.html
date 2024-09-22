@@ -25,27 +25,34 @@
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="#page-top">Rizzo Lab</a></li>
-                <li class="sidebar-nav-item"><a href="#page-top">About</a></li>
+                <li class="sidebar-nav-item"><a href="mission.html">Mission</a></li>
                 <li class="sidebar-nav-item"><a href="team.html">The Team</a></li>
-                <li class="sidebar-nav-item"><a href="#services">Projects</a></li>
+                <li class="sidebar-nav-item"><a href="gallery.html">Gallery</a></li>
                 <li class="sidebar-nav-item"><a href="publications.html">Publications</a></li>
             </ul>
         </nav>
         
-        
-        <!-- Header-->
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
-                <h1 class="mb-1">Rizzo Lab</h1>
-                <h3 class="mb-5"><em> Disability Strong, Innovation Ready</em></h3>
-                <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+
+        <!-- Fullscreen Video Background -->
+        <!-- 30% Video Section -->
+        <div class="video-section">
+            <video autoplay muted class="video-bg",onended="this.pause(); this.currentTime = this.duration;">
+                <source src="assets/img/background.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="contenter">
+                <h1>Rizzo Lab</h1>
+                <h2>Disability Strong, Innovation Ready</h2>
+                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Find Out More</button>
             </div>
-        </header>
+        </div>
+
 
 
 
         <!-- Portfolio-->
-        <section class="content-section" id="about">
+        <section class="content-section next-section" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading text-center">
                     <h2 class="text-secondary mb-0">Project Highlights</h2>
@@ -87,7 +94,7 @@
             </div>
         </section>
         
-        <section class="content-section">
+        <section class="content-section next-section">
             <div class="content-section-heading text-center">
                     <h2 class="text-secondary mb-0">Talks</h2>
              
@@ -151,7 +158,7 @@
         
         
         <!-- Call to Action-->
-        <section class="content-section bg-primary text-white">
+        <section class="content-section bg-primary text-white ">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Contact Us</h2>
                   <div class="container">
@@ -182,12 +189,12 @@
             
         </section>
         <!-- Map-->
-        <div class="map" id="contact">
+        <div class="map  next-section" id="contact">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6694322419553!2d-73.97751272340075!3d40.74729883545296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259044548381f%3A0xbf1796b0c21aefd1!2s240%20E%2038th%20St%2017th%20Floor%2C%20New%20York%2C%20NY%2010016!5e0!3m2!1sen!2sus!4v1724552458473!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
         <!-- Footer-->
-        <footer class="footer text-center">
+        <footer class="footer text-center next-section">
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline mb-5">
                     <li class="list-inline-item">

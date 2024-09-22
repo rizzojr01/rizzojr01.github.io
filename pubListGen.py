@@ -92,13 +92,14 @@ html_content = '''
 
 # Insert publication data
 for pub in all_publications:
+    doi_link = f"https://doi.org/{pub.get('doi', '')}" if pub.get('doi') else '#'
     html_content += f'''
                     <div class="publication mb-4">
                         <h6>{pub.get('title', 'No Title')}</h6>
                         <p><strong>Authors:</strong> {pub.get('authors', 'No Authors')}</p>
                         <p><strong>Journal:</strong> {pub.get('journal', 'No Journal')}</p>
-                        <p> <strong>Year:</strong>({pub.get('year', 'No Year')})</p>
-                        <p><strong>DOI:</strong> <a href="{pub.get('doi', '#')}" target="_blank">{pub.get('doi', 'No DOI')}</a></p>
+                        <p><strong>Year:</strong> ({pub.get('year', 'No Year')})</p>
+                        <p><strong>DOI:</strong> <a href="{doi_link}" target="_blank">{pub.get('doi', 'No DOI')}</a></p>
                     </div>
     '''
 
