@@ -1,0 +1,410 @@
+{
+  "exploring roundabout navigation training with 3dprinted tactile maps": {
+    "doi": "10.1145/3597638.3614485",
+    "year": "2023",
+    "journal": "The 25th International ACM SIGACCESS Conference on Computers and Accessibility",
+    "url": "https://doi.org/10.1145/3597638.3614485",
+    "sim": 1.0
+  },
+  "understanding the impact of image quality and distance of objects to object detection performance": {
+    "doi": "10.1109/iros55552.2023.10342139",
+    "year": "2023",
+    "journal": "2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+    "url": "https://doi.org/10.1109/iros55552.2023.10342139",
+    "sim": 1.0
+  },
+  "implementing remote patient monitoring of physical activity in clinical practice": {
+    "doi": "10.1097/rnj.0000000000000440",
+    "year": "2023",
+    "journal": "Rehabilitation Nursing Journal",
+    "url": "https://doi.org/10.1097/rnj.0000000000000440",
+    "sim": 1.0
+  },
+  "learning to use electronic travel aids for visually impaired in virtual reality": {
+    "doi": "10.1117/12.2612097",
+    "year": "2022",
+    "journal": "Nano-, Bio-, Info-Tech Sensors, and Wearable Systems 2022",
+    "url": "https://doi.org/10.1117/12.2612097",
+    "sim": 1.0
+  },
+  "deep augmentation for electrode shift compensation in transient highdensity semg towards application in neurorobotics": {
+    "doi": "10.1101/2022.02.25.481922",
+    "year": "2022",
+    "journal": "",
+    "url": "https://doi.org/10.1101/2022.02.25.481922",
+    "sim": 1.0
+  },
+  "are they doing better in the clinic or at home understanding clinicians needs when visualizing wearable sensor data used in remote gait assessments for people with multiple sclerosis": {
+    "doi": "10.1145/3491102.3501989",
+    "year": "2022",
+    "journal": "CHI Conference on Human Factors in Computing Systems",
+    "url": "https://doi.org/10.1145/3491102.3501989",
+    "sim": 1.0
+  },
+  "the utopia of disability inclusion in the rehabilitation sciences an insiders perspective": {},
+  "a virtual reality interface to test wearable electronic travel aids for the visually impaired": {
+    "doi": "10.1117/12.2581441",
+    "year": "2021",
+    "journal": "Nano-, Bio-, Info-Tech Sensors and Wearable Systems",
+    "url": "https://doi.org/10.1117/12.2581441",
+    "sim": 1.0
+  },
+  "a lowvision navigation platform for economies in transition countries": {
+    "doi": "10.1109/services48979.2020.00013",
+    "year": "2020",
+    "journal": "2020 IEEE World Congress on Services (SERVICES)",
+    "url": "https://doi.org/10.1109/services48979.2020.00013",
+    "sim": 1.0
+  },
+  "looking cherry red spot myoclonus in the eyesmeeting abstract": {
+    "doi": "10.1212/wnl.94.15_supplement.1268",
+    "year": "2020",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.94.15_supplement.1268",
+    "sim": 0.6363636363636364
+  },
+  "visualspatial dysfunction in parkinsons disease an exploratory multimodal biomarker studymeeting abstract": {
+    "doi": "10.1212/wnl.94.15_supplement.4024",
+    "year": "2020",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.94.15_supplement.4024",
+    "sim": 0.6923076923076923
+  },
+  "the accuracy of clinician detection of saccadic slowing a corroboration with eye movement recordingsmeeting abstract": {
+    "doi": "10.1212/wnl.94.15_supplement.266",
+    "year": "2020",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.94.15_supplement.266",
+    "sim": 0.75
+  },
+  "saccadic latencies in progressive supranuclear palsymeeting abstract": {
+    "doi": "10.1212/wnl.94.15_supplement.264",
+    "year": "2020",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.94.15_supplement.264",
+    "sim": 0.5555555555555556
+  },
+  "a piezoelectricbased advanced wearable obstacle avoidance for the visually impaired built into a backpackmeeting abstract": {
+    "doi": "10.1117/12.2558306",
+    "year": "2020",
+    "journal": "Nano-, Bio-, Info-Tech Sensors, and 3D Systems IV",
+    "url": "https://doi.org/10.1117/12.2558306",
+    "sim": 0.8
+  },
+  "neural correlates of visuospatial dysfunction in parkinsons disease a multimodal biomarker studymeeting abstract": {
+    "doi": "10.1016/j.parkreldis.2020.06.163",
+    "year": "2020",
+    "journal": "Parkinsonism &amp; Related Disorders",
+    "url": "https://doi.org/10.1016/j.parkreldis.2020.06.163",
+    "sim": 0.7857142857142857
+  },
+  "an assistive lowvision platform that augments spatial cognition through proprioceptive guidance pointtotellandtouch": {
+    "doi": "10.1109/iros40897.2019.8967647",
+    "year": "2019",
+    "journal": "2019 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+    "url": "https://doi.org/10.1109/iros40897.2019.8967647",
+    "sim": 1.0
+  },
+  "vision problems": {
+    "doi": "10.1176/appi.books.9781585624201.js23",
+    "year": "2011",
+    "journal": "Textbook of Traumatic Brain Injury",
+    "url": "https://doi.org/10.1176/appi.books.9781585624201.js23",
+    "sim": 1.0
+  },
+  "mules on the sidelines a visionbased assessment tool for sportsrelated concussionmeeting abstract": {
+    "doi": "10.1016/j.jns.2019.04.036",
+    "year": "2019",
+    "journal": "Journal of the Neurological Sciences",
+    "url": "https://doi.org/10.1016/j.jns.2019.04.036",
+    "sim": 0.7692307692307693
+  },
+  "can art therapy improve signs and symptoms of parkinsons disease preliminary results from the explorartpd studymeeting abstract": {
+    "doi": "10.1212/wnl.92.15_supplement.p2.8-013",
+    "year": "2019",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.92.15_supplement.p2.8-013",
+    "sim": 0.7894736842105263
+  },
+  "sandbagging a vision test for concussionbased sideline assessment an eye movement investigation objectively reveals the gamers strategiesmeeting abstract": {
+    "doi": "10.1212/wnl.90.15_supplement.p2.154",
+    "year": "2018",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.90.15_supplement.p2.154",
+    "sim": 0.8
+  },
+  "relation of quantitative eye movements with cognitive dysfunction in patients with concussionmeeting abstract": {
+    "doi": "10.1212/wnl.90.15_supplement.s16.004",
+    "year": "2018",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.90.15_supplement.s16.004",
+    "sim": 0.7142857142857143
+  },
+  "mobile universal lexicon evaluation system mules in ms evaluation of a new visual test of rapid picture namingmeeting abstract": {
+    "doi": "10.1016/j.jns.2018.08.019",
+    "year": "2018",
+    "journal": "Journal of the Neurological Sciences",
+    "url": "https://doi.org/10.1016/j.jns.2018.08.019",
+    "sim": 0.8333333333333334
+  },
+  "the new mules a sidelinefriendly test of rapid picture naming for concussionmeeting abstract": {
+    "doi": "10.1212/wnl.90.15_supplement.p2.169",
+    "year": "2018",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.90.15_supplement.p2.169",
+    "sim": 0.7333333333333333
+  },
+  "professional art therapy and visuospatial exploration in parkinsons disease an experimental protocol and preliminary feasibility datameeting abstract": {
+    "doi": "10.1212/wnl.90.15_supplement.p1.004",
+    "year": "2018",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.90.15_supplement.p1.004",
+    "sim": 0.7777777777777778
+  },
+  "a wearable assistive technology for the visually impaired with door knob detection and realtime feedback for handtohandle manipulation": {
+    "doi": "10.1109/iccvw.2017.177",
+    "year": "2017",
+    "journal": "2017 IEEE International Conference on Computer Vision Workshops (ICCVW)",
+    "url": "https://doi.org/10.1109/iccvw.2017.177",
+    "sim": 1.0
+  },
+  "saccade sequences and rapid number naming in chronic concussionmeeting abstract": {
+    "doi": "10.1212/wnl.88.16_supplement.p6.040",
+    "year": "2017",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.88.16_supplement.p6.040",
+    "sim": 0.6666666666666666
+  },
+  "eye movement underpinnings of the mobile universal lexicon evaluation system mules computerized analysis of rapid picture naming using eyelinkmeeting abstract": {
+    "doi": "10.1212/wnl.88.16_supplement.p6.039",
+    "year": "2017",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.88.16_supplement.p6.039",
+    "sim": 0.8095238095238095
+  },
+  "the validity of an eye tracker with low temporal resolution to assess eye movements during a rapid number naming task performance of the eyetribe versus the eyelink in controlsmeeting abstract": {
+    "doi": "10.1212/wnl.88.16_supplement.p6.038",
+    "year": "2017",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.88.16_supplement.p6.038",
+    "sim": 0.8571428571428571
+  },
+  "gazeposition dependent opsoclonus in postconcussive syndromemeeting abstract": {
+    "doi": "10.1212/wnl.88.16_supplement.p6.037",
+    "year": "2017",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.88.16_supplement.p6.037",
+    "sim": 0.5555555555555556
+  },
+  "mobile universal lexicon evaluation system mules preseason baseline concussion testing for a new measure of rapid picture namingmeeting abstract": {
+    "doi": "10.1212/wnl.88.16_supplement.p6.036",
+    "year": "2017",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.88.16_supplement.p6.036",
+    "sim": 0.8095238095238095
+  },
+  "sensor fusion for ecologically valid obstacle identification building a comprehensive assistive technology platform for the visually impairedmeeting abstract": {
+    "doi": "10.1109/icmsao.2017.7934891",
+    "year": "2017",
+    "journal": "2017 7th International Conference on Modeling, Simulation, and Applied Optimization (ICMSAO)",
+    "url": "https://doi.org/10.1109/icmsao.2017.7934891",
+    "sim": 0.8333333333333334
+  },
+  "windows to the brain visual systems rehabilitation and research in concussionmeeting abstract": {},
+  "capturing the efferent side of vision in multiple sclerosis new data from a digitized rapid number naming taskmeeting abstract": {
+    "doi": "10.1212/wnl.86.16_supplement.p6.317",
+    "year": "2016",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.86.16_supplement.p6.317",
+    "sim": 0.8095238095238095
+  },
+  "the ocular motor underpinnings of rapid numbernaming as a sideline performance measure for concussionmeeting abstract": {
+    "doi": "10.1212/wnl.86.16_supplement.i13.005",
+    "year": "2016",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.86.16_supplement.i13.005",
+    "sim": 0.7647058823529411
+  },
+  "rapid number naming and quantitative eye movements may reflect contact sport exposure in a collegiate ice hockey cohortmeeting abstract": {
+    "doi": "10.1097/wno.0000000000000533",
+    "year": "2018",
+    "journal": "Journal of Neuro-Ophthalmology",
+    "url": "https://doi.org/10.1097/wno.0000000000000533",
+    "sim": 0.85
+  },
+  "yield of the clinical neuroophthalmologic examination in patients with concussionmeeting abstract": {
+    "doi": "10.1212/wnl.86.16_supplement.i13.003",
+    "year": "2016",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.86.16_supplement.i13.003",
+    "sim": 0.6923076923076923
+  },
+  "visual performance of nonnative versus native english speakers on a sideline concussion screen an objective look at eye movement recordingsmeeting abstract": {
+    "doi": "10.1212/wnl.86.16_supplement.i13.002",
+    "year": "2016",
+    "journal": "Neurology",
+    "url": "https://doi.org/10.1212/wnl.86.16_supplement.i13.002",
+    "sim": 0.8260869565217391
+  },
+  "a parametric model for saccadic eye movementmeeting abstract": {
+    "doi": "10.1109/spmb.2016.7846860",
+    "year": "2016",
+    "journal": "2016 IEEE Signal Processing in Medicine and Biology Symposium (SPMB)",
+    "url": "https://doi.org/10.1109/spmb.2016.7846860",
+    "sim": 0.6666666666666666
+  },
+  "obtaining a pain history": {
+    "doi": "10.1007/978-1-4939-2462-2_2",
+    "year": "2015",
+    "journal": "Pain Management and Palliative Care",
+    "url": "https://doi.org/10.1007/978-1-4939-2462-2_2",
+    "sim": 1.0
+  },
+  "mechanical force redistribution enabling seamless largeformat highaccuracy surface interaction": {},
+  "stroke rehabilitation": {},
+  "musculoskeletal pelvic pain and pelvic floor dysfunction": {
+    "doi": "10.1007/978-1-4614-5419-9_13",
+    "year": "2013",
+    "journal": "Rehab Clinical Pocket Guide",
+    "url": "https://doi.org/10.1007/978-1-4614-5419-9_13",
+    "sim": 1.0
+  },
+  "prosthetics": {
+    "doi": "10.1007/978-1-4614-5419-9_15",
+    "year": "2013",
+    "journal": "Rehab Clinical Pocket Guide",
+    "url": "https://doi.org/10.1007/978-1-4614-5419-9_15",
+    "sim": 1.0
+  },
+  "medical acupuncture": {
+    "doi": "10.1007/978-1-4614-5419-9_17",
+    "year": "2013",
+    "journal": "Rehab Clinical Pocket Guide",
+    "url": "https://doi.org/10.1007/978-1-4614-5419-9_17",
+    "sim": 1.0
+  },
+  "embolic cerebrovascular accident after carotid sinus massage of a previously endarterectomized carotid artery a case reportmeeting abstract": {
+    "doi": "10.1016/j.pmrj.2011.08.513",
+    "year": "2011",
+    "journal": "PM&amp;R",
+    "url": "https://doi.org/10.1016/j.pmrj.2011.08.513",
+    "sim": 0.7222222222222222
+  },
+  "an approach to dimensions of value": {
+    "doi": "10.1080/00223980.1964.9916679",
+    "year": "1964",
+    "journal": "The Journal of Psychology",
+    "url": "https://doi.org/10.1080/00223980.1964.9916679",
+    "sim": 1.0
+  },
+  "prevention and treatment of ankle sprain in athletes": {
+    "doi": "10.2165/00007256-200333150-00005",
+    "year": "2003",
+    "journal": "Sports Medicine",
+    "url": "https://doi.org/10.2165/00007256-200333150-00005",
+    "sim": 1.0
+  },
+  "nonoperative management of multilevel lumbar disk herniations in an adolescent athlete": {
+    "doi": "10.1016/s0025-6196(12)61314-7",
+    "year": "1992",
+    "journal": "Mayo Clinic Proceedings",
+    "url": "https://doi.org/10.1016/s0025-6196(12)61314-7",
+    "sim": 1.0
+  },
+  "2alkoxydihydrocinnamates as ppar agonists activity modulation by the incorporation of phenoxy substituents": {
+    "doi": "10.1016/j.bmcl.2004.10.042",
+    "year": "2005",
+    "journal": "Bioorganic &amp; Medicinal Chemistry Letters",
+    "url": "https://doi.org/10.1016/j.bmcl.2004.10.042",
+    "sim": 1.0
+  },
+  "injuries in adolescent and preadolescent boys at two large wrestling tournaments": {
+    "doi": "10.1177/036354659202000218",
+    "year": "1992",
+    "journal": "The American Journal of Sports Medicine",
+    "url": "https://doi.org/10.1177/036354659202000218",
+    "sim": 1.0
+  },
+  "synthesis of ppar agonist via asymmetric hydrogenation of a cinnamic acid derivative and stereospecific displacement of s2chloropropionic acid": {
+    "doi": "10.1021/ol050367e.s001",
+    "year": "",
+    "journal": "",
+    "url": "https://doi.org/10.1021/ol050367e.s001",
+    "sim": 1.0
+  },
+  "synthesis of a peroxime proliferator activated receptor ppar alphagamma agonist via stereocontrolled williamson ether synthesis and stereospecific sn2 reaction of s2chloro propionic acid with phenoxides": {
+    "doi": "10.1021/jo050268e.s003",
+    "year": "",
+    "journal": "",
+    "url": "https://doi.org/10.1021/jo050268e.s003",
+    "sim": 0.9166666666666666
+  },
+  "quality of life of men with biochemical recurrence of prostate cancer": {
+    "doi": "10.1300/j077v26n02_02",
+    "year": "2008",
+    "journal": "Journal of Psychosocial Oncology",
+    "url": "https://doi.org/10.1300/j077v26n02_02",
+    "sim": 1.0
+  },
+  "cochlear versus retrocochlear presbyacusis clinical correlates": {
+    "doi": "10.1097/00003446-199102000-00008",
+    "year": "1991",
+    "journal": "Ear and Hearing",
+    "url": "https://doi.org/10.1097/00003446-199102000-00008",
+    "sim": 0.6666666666666666
+  },
+  "a multidisciplinary approach to prosthetic management": {
+    "doi": "10.1177/0885713x9000500104",
+    "year": "1990",
+    "journal": "Quality Assurance and Utilization Review",
+    "url": "https://doi.org/10.1177/0885713x9000500104",
+    "sim": 1.0
+  },
+  "the first co image i probing the hih2 layer around the ultracompact hii region mon r2": {},
+  "rapid number naming in chronic concussion eye movements in the kingdevick test": {
+    "doi": "10.1002/acn3.345",
+    "year": "2016",
+    "journal": "Annals of Clinical and Translational Neurology",
+    "url": "https://doi.org/10.1002/acn3.345",
+    "sim": 1.0
+  },
+  "residual gaze behavior during navigation in blindness and low vision": {},
+  "head and eye control in persons with low vision during urban navigation": {},
+  "influence of ear canal air pressure on acoustic reflex threshold": {
+    "doi": "10.1097/00003446-198201000-00009",
+    "year": "1982",
+    "journal": "Ear and Hearing",
+    "url": "https://doi.org/10.1097/00003446-198201000-00009",
+    "sim": 0.5714285714285714
+  },
+  "laryngeal spaces and lymphatics current anatomic concepts": {
+    "doi": "10.1177/00034894830920s402",
+    "year": "1983",
+    "journal": "Annals of Otology, Rhinology &amp; Laryngology",
+    "url": "https://doi.org/10.1177/00034894830920s402",
+    "sim": 1.0
+  },
+  "effect of psychophysical backward masking on human brainstem responses abr": {
+    "doi": "10.1121/1.386475",
+    "year": "1981",
+    "journal": "The Journal of the Acoustical Society of America",
+    "url": "https://doi.org/10.1121/1.386475",
+    "sim": 0.5833333333333334
+  },
+  "correcting for ear canal collapse during audiometry": {
+    "doi": "10.1097/00003446-198309000-00007",
+    "year": "1983",
+    "journal": "Ear and Hearing",
+    "url": "https://doi.org/10.1097/00003446-198309000-00007",
+    "sim": 1.0
+  },
+  "practice effects for normal listeners performance on a nonsense syllable test": {},
+  "predicting hearing loss from the acoustic reflex": {
+    "doi": "10.1121/1.2016990",
+    "year": "1979",
+    "journal": "The Journal of the Acoustical Society of America",
+    "url": "https://doi.org/10.1121/1.2016990",
+    "sim": 1.0
+  },
+  "graduate programs fall short": {}
+}

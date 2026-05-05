@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Media | Rizzo Labs</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Rizzo Labs Media & Press">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="plugins/animate-css/animate.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .press-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 24px;
+      height: 100%;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .press-card:hover {
+      border-color: rgba(6, 182, 212, 0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transform: translateY(-3px);
+    }
+    .press-outlet {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #06B6D4;
+      background: rgba(6, 182, 212, 0.10);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+    .press-headline {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .press-headline a {
+      color: #F2F2F2;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .press-headline a:hover {
+      color: #06B6D4;
+      text-decoration: underline;
+    }
+    .press-date {
+      font-size: 0.8rem;
+      color: #B0BEC8;
+      margin-bottom: 10px;
+    }
+    .press-desc {
+      font-size: 0.92rem;
+      color: #C8C8C8;
+      line-height: 1.65;
+      margin: 0;
+    }
+  </style>
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Header -->
+<header id="header" class="header-one">
+
+  <div class="site-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-dark p-0">
+
+            <button class="navbar-toggler" type="button"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+              aria-controls="navbar-collapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav mr-auto">
+
+                <!-- Home -->
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <!-- Projects -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="projects.html">Projects</a>
+                </li>
+
+                <!-- Funding -->
+                <li class="nav-item">
+                  <a class="nav-link" href="funding.html">Funding</a>
+                </li>
+
+                <!-- Publications -->
+                <li class="nav-item">
+                  <a class="nav-link" href="publications.html">Publications</a>
+                </li>
+
+                <!-- Recognition -->
+                <li class="nav-item">
+                  <a class="nav-link" href="recognition.html">Recognition</a>
+                </li>
+
+                <!-- Media -->
+                <li class="nav-item active">
+                  <a class="nav-link" href="media.html">Media</a>
+                </li>
+
+                <!-- Team -->
+                <li class="nav-item">
+                  <a class="nav-link" href="team.html">Team</a>
+                </li>
+
+                <!-- Photos -->
+                <li class="nav-item">
+                  <a class="nav-link" href="photos.html">Photos</a>
+                </li>
+
+                <!-- Join -->
+                <li class="nav-item">
+                  <a class="nav-link" href="join.html">Join</a>
+                </li>
+
+                <!-- Contact -->
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+              </ul>
+              <!-- Logo on right -->
+              <a class="navbar-brand ml-3" href="index.html">
+                <img src="images/web_logo.png" alt="Rizzo Labs" style="height:42px; filter:brightness(0) invert(1);">
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="search-block" style="display: none;">
+        <label for="search-field" class="w-100 mb-0">
+          <input type="text" class="form-control" id="search-field"
+            placeholder="Search publications, projects, people">
+        </label>
+        <span class="search-close">&times;</span>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Banner Area -->
+<div id="banner-area" class="banner-area" style="background-image:url('images/banner/banner1.jpg');">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">Media &amp; Press</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Media Highlights / Videos & Talks -->
+<section class="content-section next-section" id="talks-grid">
+  <div class="container-fluid px-5">
+    <!-- Title row -->
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h3 class="section-sub-title">Videos &amp; Talks</h3>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-stretch">
+
+      <!-- Left column: 3 stacked videos -->
+      <div class="col-12 col-md-3 d-flex flex-column gap-3">
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video2.mp4"
+             aria-label="StartUp Health NOW interview with Dr. John-Ross Rizzo on eye and hand tracking for stroke and brain injury rehabilitation">
+          <video src="video/video2.mp4" muted preload="none" playsinline poster="video/video_cover/video2.png"
+                 aria-label="StartUp Health NOW interview with Dr. John-Ross Rizzo of NYU Langone Health"></video>
+          <img class="video-thumb" src="video/video_cover/video2.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo of NYU Langone Health is interviewed for StartUp Health NOW. He explains how wearable cameras and sensors for eye and hand tracking enable clinicians to objectively measure brain function following stroke or brain injury, supporting more precise rehabilitation assessment and recovery monitoring.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video3.mp4"
+             aria-label="accessiBe Spotlight Sessions interview with Dr. John-Ross Rizzo on assistive technology, disability inclusion, and living with vision loss">
+          <video src="video/video3.mp4" muted preload="none" playsinline poster="video/video_cover/video3.png"
+                 aria-label="accessiBe Spotlight Sessions interview with Dr. John-Ross Rizzo, Health System Director for Disability Inclusion at NYU Langone Health"></video>
+          <img class="video-thumb" src="video/video_cover/video3.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo, Health System Director for Disability Inclusion at NYU Langone Health, is featured in an accessiBe Spotlight Sessions interview. He discusses his work in assistive technology and universal design, his personal experience living with vision loss, and the importance of disability inclusion in healthcare and workplace settings.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video4.mp4"
+             aria-label="Dr. John-Ross Rizzo receiving the 2024 Lighthouse Guild Pisart Award in Technological Innovation">
+          <video src="video/video4.mp4" muted preload="none" playsinline poster="video/video_cover/video4.png"
+                 aria-label="Award ceremony video of Dr. John-Ross Rizzo receiving the 2024 Lighthouse Guild Pisart Award in Technological Innovation"></video>
+          <img class="video-thumb" src="video/video_cover/video4.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo is presented with the 2024 Lighthouse Guild Pisart Award in Technological Innovation. The ceremony recognizes his contributions to developing wearable and sensor-based technologies that advance independence and rehabilitation for people with visual impairments.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Center column: 2 large videos -->
+      <div class="col-12 col-md-6 d-flex flex-column gap-3">
+        <div class="video-card ratio ratio-21x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/tedx.mp4"
+             aria-label="Dr. John-Ross Rizzo TEDx talk on assistive technology and rehabilitation engineering">
+          <video src="video/tedx.mp4" muted preload="none" playsinline poster="video/video_cover/tedx.png"
+                 aria-label="Dr. John-Ross Rizzo delivering a TEDx talk about assistive technology for people with visual and motor disabilities"></video>
+          <img class="video-thumb" src="video/video_cover/tedx.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo stands on a TEDx stage in front of a large seated audience. He presents research on wearable assistive technology and rehabilitation engineering designed to restore independence for people with visual and motor disabilities. Presentation slides illustrate the lab&#39;s navigation and rehabilitation assessment projects.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+
+        <div class="video-card ratio ratio-21x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video7.mp4"
+             aria-label="Choroideremia Q&amp;A panel at the 2025 CRF International Conference featuring Dr. John-Ross Rizzo and experts on gene therapy and clinical trials">
+          <video src="video/video7.mp4" muted preload="none" playsinline poster="video/video_cover/video7.png"
+                 aria-label="Panel discussion at the 2025 CRF International Conference with Dr. John-Ross Rizzo and leading experts answering audience questions about Choroideremia, gene therapy, and clinical trials"></video>
+          <img class="video-thumb" src="video/video_cover/video7.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">A panel of experts including Dr. John-Ross Rizzo sits on stage at the 2025 CRF International Conference. Audience members submit questions about Choroideremia, eye health, rare disease research, gene therapy, and ongoing clinical trials. Panelists take turns responding, sharing insights on current treatments and future directions in the field.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Right column: 3 stacked videos -->
+      <div class="col-12 col-md-3 d-flex flex-column gap-3">
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video5.mp4"
+             aria-label="ADA 32nd Anniversary video with Dr. John-Ross Rizzo on disability inclusion, workplace technology access, and the impact of the Americans with Disabilities Act">
+          <video src="video/video5.mp4" muted preload="none" playsinline poster="video/video_cover/video5.png"
+                 aria-label="ADA 32nd Anniversary video in partnership with accessiBe featuring Dr. John-Ross Rizzo on living with low vision and disability inclusion"></video>
+          <img class="video-thumb" src="video/video_cover/video5.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo speaks on camera for an ADA 32nd Anniversary video produced in partnership with accessiBe. Living with low vision himself, he reflects on how the Americans with Disabilities Act has shaped his life and career, discusses the importance of workplace technology access, and calls for greater disability representation in leadership roles.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video6.mp4"
+             aria-label="Dr. John-Ross Rizzo presenting State of the Union on Advanced Wearables for the Blind and Visually Impaired for the Choroideremia Research Foundation">
+          <video src="video/video6.mp4" muted preload="none" playsinline poster="video/video_cover/video6.png"
+                 aria-label="Presentation by Dr. John-Ross Rizzo on wearable technology research to support navigation and employment for visually impaired people, for the Choroideremia Research Foundation"></video>
+          <img class="video-thumb" src="video/video_cover/video6.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. John-Ross Rizzo presents a lecture titled &ldquo;State of the Union on Advanced Wearables for the Blind and Visually Impaired&rdquo; for the Choroideremia Research Foundation. He surveys the current landscape of wearable technology research, highlighting systems developed at Rizzo Labs that support navigation, employment access, and independence for people with visual impairments.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+
+        <div class="video-card ratio ratio-16x9 position-relative overflow-hidden shadow-sm"
+             role="button" tabindex="0"
+             data-video-src="video/video8.mp4"
+             aria-label="Conference session on how technology is changing the future for Choroideremia, presented by Dr. JR Rizzo and Dr. David Gamm at the 2022 CRF International Conference">
+          <video src="video/video8.mp4" muted preload="none" playsinline poster="video/video_cover/video8.png"
+                 aria-label="2022 CRF International Conference session by Dr. JR Rizzo and Dr. David Gamm on technology and the future of Choroideremia treatment"></video>
+          <img class="video-thumb" src="video/video_cover/video8.png" alt="" aria-hidden="true">
+          <p class="a11y-audio-desc" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Dr. JR Rizzo and Dr. David Gamm present together at the 2022 CRF International Conference in Rochester, NY. Their session, &ldquo;How Technology is Changing the Future for CHM,&rdquo; covers advances in wearable assistive technology and emerging therapeutic approaches for Choroideremia, addressing both quality-of-life tools and potential treatments for this rare inherited retinal disease.</p>
+          <span class="play-icon" aria-hidden="true"></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Press & Articles -->
+<section class="content-section solid-bg" id="press-articles">
+  <div class="container">
+
+    <div class="row text-center mb-4">
+      <div class="col-lg-12">
+        <h3 class="section-sub-title">Press &amp; Articles</h3>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- 1 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Healio / Primary Care Optometry News</div>
+          <div class="press-headline">
+            <a href="https://www.healio.com/news/optometry/20260303/varying-gaze-patterns-give-clues-to-low-vision-rehab-management" target="_blank" rel="noopener noreferrer">
+              Varying Gaze Patterns Give Clues to Low Vision Rehab, Management
+            </a>
+          </div>
+          <div class="press-date">March 3, 2026</div>
+          <p class="press-desc">Coverage of research showing that blind and low-vision individuals fixate in a narrower range of space than sighted people, with implications for personalized rehabilitation strategies.</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Becker's Hospital Review</div>
+          <div class="press-headline">
+            <a href="https://www.beckershospitalreview.com/patient-experience/nyu-langones-wayfinding-game-changers/" target="_blank" rel="noopener noreferrer">
+              NYU Langone's Wayfinding Game Changers
+            </a>
+          </div>
+          <div class="press-date">March 6, 2025</div>
+          <p class="press-desc">Feature on the I'll Walk With You program led by Dr. John-Ross Rizzo to improve wayfinding for patients with disabilities at NYU Langone, an extension of accessibility work spanning hospital and transit environments.</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">The Wall Street Journal</div>
+          <div class="press-headline">
+            <a href="https://www.wsj.com/tech/ai/metas-ai-powered-ray-bans-are-life-enhancing-for-the-blind-3ae38026" target="_blank" rel="noopener noreferrer">
+              Meta's AI-Powered Ray-Bans Are Life-Enhancing for the Blind
+            </a>
+          </div>
+          <div class="press-date">February 18, 2025</div>
+          <p class="press-desc">Coverage of how AI-powered smart glasses are reshaping daily life for people who are blind or have low vision, contextualizing the broader assistive technology landscape that complements lab work on wearable navigation.</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU Tandon School of Engineering</div>
+          <div class="press-headline">
+            <a href="https://engineering.nyu.edu/news/new-virtual-reality-tested-system-shows-promise-aiding-navigation-people-blindness-or-low" target="_blank" rel="noopener noreferrer">
+              New Virtual Reality-Tested System Shows Promise in Aiding Navigation of People with Blindness or Low Vision
+            </a>
+          </div>
+          <div class="press-date">December 16, 2024</div>
+          <p class="press-desc">Press release on a multisensory navigation system combining vibrational and audio feedback through a discreet belt prototype, tested in a VR-simulated subway environment with 72 participants.</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Lighthouse Guild</div>
+          <div class="press-headline">
+            <a href="https://lighthouseguild.org/news/lighthouse-guild-announces-2024-outstanding-achievement-awards/" target="_blank" rel="noopener noreferrer">
+              Lighthouse Guild Announces 2024 Outstanding Achievement Awards
+            </a>
+          </div>
+          <div class="press-date">December 2, 2024</div>
+          <p class="press-desc">Announcement of the 2024 Pisart Award in Technological Innovation, recognizing pioneering work harnessing technology to break down barriers for people with visual impairments.</p>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Otdowntown</div>
+          <div class="press-headline">
+            <a href="https://www.otdowntown.com/features/people/dotty-2024-awardee-dr-john-ross-rizzo-clearing-roadblocks-for-the-visually-impaired-KF3214936" target="_blank" rel="noopener noreferrer">
+              DOTTY 2024 Awardee Dr. John-Ross Rizzo: Clearing Roadblocks for the Visually Impaired
+            </a>
+          </div>
+          <div class="press-date">March 13, 2024</div>
+          <p class="press-desc">Profile of the DOTTY 2024 awardee whose cutting-edge technology helps people with visual impairments navigate the world with greater confidence.</p>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU Tandon School of Engineering</div>
+          <div class="press-headline">
+            <a href="https://engineering.nyu.edu/news/national-science-foundation-taps-nyu-tandon-5-million-grant-advance-accessibility" target="_blank" rel="noopener noreferrer">
+              National Science Foundation Taps NYU Tandon with $5 Million Grant to Advance Accessibility
+            </a>
+          </div>
+          <div class="press-date">January 17, 2024</div>
+          <p class="press-desc">Press release on the NSF Convergence Accelerator Phase 2 grant supporting development of VIS4ION, a wearable platform with miniaturized sensors and AI services to assist navigation for the visually impaired.</p>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Foundation Fighting Blindness</div>
+          <div class="press-headline">
+            <a href="https://www.fightingblindness.org/stories/ny-researcher-s-app-transforms-commuting-for-the-visually-impaired-140" target="_blank" rel="noopener noreferrer">
+              NY Researcher's App Transforms Commuting for the Visually Impaired
+            </a>
+          </div>
+          <div class="press-date">November 6, 2023</div>
+          <p class="press-desc">Beacon Stories feature on the development of Commute Booster and the broader effort to bring assistive technology to public transit for people with low vision and blindness.</p>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">EyeNet Magazine (American Academy of Ophthalmology)</div>
+          <div class="press-headline">
+            <a href="https://www.aao.org/eyenet/article/new-app-for-navigating-subway-stations" target="_blank" rel="noopener noreferrer">
+              News in Review: New App for Navigating Subway Stations
+            </a>
+          </div>
+          <div class="press-date">November 2023</div>
+          <p class="press-desc">Coverage in the American Academy of Ophthalmology's flagship magazine on how Commute Booster integrates GTFS data and OCR to make subway stations safer for travelers with visual impairment.</p>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">PRNewswire / NYU Langone Health</div>
+          <div class="press-headline">
+            <a href="https://www.prnewswire.com/news-releases/nyu-langone-health-marks-historic-75th-anniversary-of-rusk-rehabilitation-301954086.html" target="_blank" rel="noopener noreferrer">
+              NYU Langone Health Marks Historic 75th Anniversary of Rusk Rehabilitation
+            </a>
+          </div>
+          <div class="press-date">October 11, 2023</div>
+          <p class="press-desc">Press release on the 75th anniversary of Rusk Rehabilitation, including the presentation of the Howard A. Rusk Leadership and Innovation Award for assistive technology development.</p>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Forbes</div>
+          <div class="press-headline">
+            <a href="https://www.forbes.com/sites/stevenaquino/2023/09/18/inside-nyus-mission-to-make-navigating-new-york-citys-subways-accessible-to-all/" target="_blank" rel="noopener noreferrer">
+              Inside NYU's Mission To Make Navigating New York City's Subways Accessible To All
+            </a>
+          </div>
+          <div class="press-date">September 18, 2023</div>
+          <p class="press-desc">Feature on the Commute Booster app and NYU's broader effort to improve subway accessibility for blind and low-vision commuters.</p>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Cool Blind Tech</div>
+          <div class="press-headline">
+            <a href="https://coolblindtech.com/navigating-the-nyc-subway-with-commute-booster/" target="_blank" rel="noopener noreferrer">
+              Navigating the NYC Subway with Commute Booster
+            </a>
+          </div>
+          <div class="press-date">August 20, 2023</div>
+          <p class="press-desc">In-depth overview of how Commute Booster combines GTFS transit data and OCR to help blind users navigate complex subway interchanges, achieving a 97% sign-identification success rate in testing.</p>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU WIRELESS</div>
+          <div class="press-headline">
+            <a href="https://wireless.engineering.nyu.edu/governor-kathy-hochul-calls-on-professor-jr-rizzo-to-help-boost-accessibility-for-nyc-commuters/" target="_blank" rel="noopener noreferrer">
+              Governor Kathy Hochul Calls on Professor JR Rizzo to Help Boost Accessibility for NYC Commuters
+            </a>
+          </div>
+          <div class="press-date">August 16, 2023</div>
+          <p class="press-desc">News on the appointment to the MTA Board to advocate for universal design and a pro-technology approach to expanding accessibility across paratransit, subways, buses, and commuter rail.</p>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Association of Optometrists (UK)</div>
+          <div class="press-headline">
+            <a href="https://www.aop.org.uk/ot/news/2023/07/29/app-makes-commute-easier-for-those-with-sight-loss" target="_blank" rel="noopener noreferrer">
+              App Makes Commute Easier for Those with Sight Loss
+            </a>
+          </div>
+          <div class="press-date">July 29, 2023</div>
+          <p class="press-desc">Report on how the Commute Booster app addresses subway navigation challenges for people with sight loss.</p>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">9to5Mac</div>
+          <div class="press-headline">
+            <a href="https://9to5mac.com/2023/07/28/blind-people-commute-booster/" target="_blank" rel="noopener noreferrer">
+              Visually Impaired People Will Be Able to Navigate NYC Subway System with Help of Upcoming App
+            </a>
+          </div>
+          <div class="press-date">July 28, 2023</div>
+          <p class="press-desc">Coverage of Commute Booster's first-stage testing results and its use of on-device OCR to guide users through the subway middle mile.</p>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">TechTimes</div>
+          <div class="press-headline">
+            <a href="https://www.techtimes.com/articles/294411/20230728/commute-booster-app-first-tests-offers-breakthrough-accessibility-visually-nyc-subway.htm" target="_blank" rel="noopener noreferrer">
+              Commute Booster App Aces First Tests, Offers Breakthrough Accessibility for Visually Impaired NYC Subway Passengers
+            </a>
+          </div>
+          <div class="press-date">July 28, 2023</div>
+          <p class="press-desc">Report on Commute Booster's 97% sign-identification success rate across three NYC subway stations in initial testing.</p>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU Tandon School of Engineering</div>
+          <div class="press-headline">
+            <a href="https://engineering.nyu.edu/news/new-app-developed-nyu-tandon-promises-make-navigating-subway-stations-easier-people-blindness" target="_blank" rel="noopener noreferrer">
+              New App Developed at NYU Tandon Promises to Make Navigating Subway Stations Easier for People with Blindness and Low Vision
+            </a>
+          </div>
+          <div class="press-date">July 2023</div>
+          <p class="press-desc">Official university announcement covering the development and initial results of the Commute Booster navigation app.</p>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Consumer Reports</div>
+          <div class="press-headline">
+            <a href="https://www.consumerreports.org/electronics-computers/cell-phones/phone-accessibility-settings-can-help-with-vision-problems-a9958822763/" target="_blank" rel="noopener noreferrer">
+              Phone Accessibility Settings Can Help with Vision Problems
+            </a>
+          </div>
+          <div class="press-date">November 12, 2022</div>
+          <p class="press-desc">Feature drawing on insights about smartphone accessibility settings for low vision, including text sizing, screen readers, magnification, and high-contrast modes on iOS and Android.</p>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">New York Medical College</div>
+          <div class="press-headline">
+            <a href="https://www.nymc.edu/newsroom/stories/som-alumni-rizzo.php" target="_blank" rel="noopener noreferrer">
+              Progressive Vision Loss Didn't Deter Dr. Rizzo in Medical School
+            </a>
+          </div>
+          <div class="press-date">March 2, 2017</div>
+          <p class="press-desc">Alumni profile chronicling the path from medical school through the founding of Tactile Navigation Tools and early prototypes such as Cumba Cane and Eyeronman.</p>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Forbes</div>
+          <div class="press-headline">
+            <a href="https://www.forbes.com/sites/nyuentrepreneurschallenge/2012/10/17/hope-in-sight-for-visually-impaired/" target="_blank" rel="noopener noreferrer">
+              Hope in Sight for Visually Impaired
+            </a>
+          </div>
+          <div class="press-date">October 17, 2012</div>
+          <p class="press-desc">Early Forbes coverage on entrepreneurial efforts at NYU to develop assistive technology for the visually impaired.</p>
+        </div>
+      </div>
+
+      <!-- 21 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU Langone Physician Focus</div>
+          <div class="press-headline">
+            <a href="https://physicianfocus.nyulangone.org/unav-a-novel-wayfinding-aid-for-the-visually-impaired/" target="_blank" rel="noopener noreferrer">
+              UNav: A Novel Wayfinding Aid for the Visually Impaired
+            </a>
+          </div>
+          <div class="press-date"></div>
+          <p class="press-desc">Feature on UNav, a low-cost smartphone application using computer vision to deliver step-by-step indoor and outdoor navigation that statistically outperformed in-person travel directions in a clinical trial.</p>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYU Langone Physician Focus</div>
+          <div class="press-headline">
+            <a href="https://physicianfocus.nyulangone.org/developing-an-affordable-smart-navigation-system-for-the-visually-impaired/" target="_blank" rel="noopener noreferrer">
+              Developing an Affordable, Smart Navigation System for the Visually Impaired
+            </a>
+          </div>
+          <div class="press-date"></div>
+          <p class="press-desc">Coverage of VIS4ION, a wearable platform combining stereo cameras, embedded computing, haptic feedback, and cloud microservices, being tested with partners in Thailand to expand access in low- and middle-income countries.</p>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">NYC DOT Equity in Motion Summit</div>
+          <div class="press-headline">
+            <a href="https://www.equityinmotionnyc.info/jr-rizzo" target="_blank" rel="noopener noreferrer">
+              John-Ross "JR" Rizzo, MD — Speaker Profile
+            </a>
+          </div>
+          <div class="press-date"></div>
+          <p class="press-desc">Speaker profile for the NYC DOT Equity in Motion Summit, presenting work at the Visuomotor Integration Laboratory and the REACTIV Lab on bio-inspired, multi-sensory assistive technologies.</p>
+        </div>
+      </div>
+
+      <!-- 24 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="press-card">
+          <div class="press-outlet">Lighthouse Guild</div>
+          <div class="press-headline">
+            <a href="https://lighthouseguild.org/research/lighthouse-guild-lectures/" target="_blank" rel="noopener noreferrer">
+              Lighthouse Guild Awards Lectures
+            </a>
+          </div>
+          <div class="press-date"></div>
+          <p class="press-desc">Index of the annual Lighthouse Guild Awards Lectures, recognizing outstanding achievements in vision research, technological innovation, and dedicated advocacy.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="footer">
+  <div class="footer-main">
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Column 1: Contact -->
+        <div class="col-lg-4 col-md-6 footer-widget">
+          <h3 class="widget-title">Contact</h3>
+
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2">
+              <i class="fa fa-map-marker-alt mr-2" aria-hidden="true"></i>
+              <span>
+                <strong>Location</strong><br>
+                NYU Langone Ambulatory Care Center<br>
+                Rusk Rehabilitation<br>
+                240 E 38th St, 17th Floor,<br>
+                New York, NY 10016
+              </span>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:JohnRoss.Rizzo@nyulangone.org">JohnRoss.Rizzo@nyulangone.org</a>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:mahya.beheshti@nyulangone.org">mahya.beheshti@nyulangone.org </a>
+            </li>
+          </ul>
+
+          <div class="footer-social">
+            <h3 class="widget-title">Connect</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="d-inline-block">
+                <a aria-label="LinkedIn"
+                   href="https://www.linkedin.com/in/jr-rizzo-3b447125/"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="X"
+                   href="https://x.com/jrrizzo00"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="GitHub"
+                   href="https://github.com/rizzojr01"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Column 2: Map -->
+        <div class="col-lg-4 col-md-6 footer-widget">
+          <h3 class="widget-title">Map</h3>
+
+          <div class="footer-map-wrapper">
+            <iframe
+              title="Rizzo Labs map"
+              class="footer-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016&output=embed">
+            </iframe>
+          </div>
+
+          <p class="mt-3 mb-0">
+            <a class="read-more"
+               href="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016"
+               target="_blank" rel="noopener">
+              Open in Google Maps
+            </a>
+          </p>
+        </div>
+
+        <!-- Column 3: Subscription -->
+        <div class="col-lg-4 col-md-12 footer-widget">
+          <h3 class="widget-title">Stay Updated</h3>
+
+          <p class="mb-3">
+            Receive updates on new publications, talks, and project milestones.
+          </p>
+
+          <form class="footer-newsletter" id="mc-form" novalidate>
+            <div class="form-group mb-2">
+              <label class="sr-only" for="mc-email">Email</label>
+              <input
+                id="mc-email"
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Subscribe
+            </button>
+
+            <small id="mc-message" class="d-block mt-2 footer-note"></small>
+          </form>
+
+          <small class="d-block mt-2 footer-note">
+            No spam. Unsubscribe anytime.
+          </small>
+        </div>
+
+      </div><!--/ Row end -->
+
+    </div><!--/ Container end -->
+  </div><!--/ Footer main end -->
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+          <div class="copyright-info">
+            <span>Copyright &copy; <span id="footer-year">2024</span> Rizzo Labs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var el = document.getElementById('footer-year');
+    if (el) el.textContent = String(new Date().getFullYear());
+  })();
+</script>
+
+<!-- Javascript Files -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/slick/slick-animation.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox.js"></script>
+<script src="plugins/shuffle/shuffle.min.js" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+<script src="plugins/google-map/map.js" defer></script>
+<script src="js/script.js"></script>
+
+<script src="accessibility.js"></script>
+</body>
+</html>
