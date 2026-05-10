@@ -6080,6 +6080,11 @@ td {
   color: #06B6D4 !important;
 }
 
+.join-section .fa-star,
+.join-card .fa-star {
+  color: #FFD700 !important;
+}
+
 .join-section a,
 .join-card a,
 .join-callout a {
