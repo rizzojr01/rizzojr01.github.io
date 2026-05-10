@@ -898,6 +898,9 @@ def main():
   })();
 </script>
 
+<!-- GoatCounter Analytics -->
+<script data-goatcounter="https://rizzolabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """
