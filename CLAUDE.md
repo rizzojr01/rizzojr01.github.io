@@ -28,16 +28,29 @@ The script scrapes the NYU library publications API (`library.med.nyu.edu/api/pu
 
 ## Site architecture
 
-- **Pages:** `index.html`, `projects.html`, `funding.html`, `publications.html` (generated), `team.html`, `join.html`, `photos.html`, `contact.html`
+- **Pages:** `index.html`, `projects.html`, `funding.html`, `publications.html` (generated), `team.html`, `join.html`, `photos.html`, `contact.html`, `media.html`, `recognition.html`
 - **Custom styles:** `css/style.css` (source map at `css/style.css.map`)
-- **Custom JS:** `js/script.js` — handles fixed header scroll behavior, back-to-top button, slick carousel init, and colorbox gallery
+- **Custom JS:** `js/script.js` — handles fixed header scroll behavior, back-to-top button, slick carousel init, and colorbox gallery; `accessibility.js` — runtime accessibility enhancements (wraps videos with `role=region`, keyboard focus improvements)
 - **Plugins (vendored):** `plugins/` — Bootstrap 4, FontAwesome, Slick carousel, Colorbox, Shuffle.js, jQuery
 - **Media:** project demo videos live directly in `images/` (e.g. `images/curb.mp4`); media highlights videos live in `video/` with poster images in `video/video_cover/`
 - **Team/project images:** `images/img/` and `images/projects/`
 
+## Accessibility enrichment
+
+`a11y_generate.py` uses the Claude API (vision) + ffmpeg to automatically generate:
+- `alt` text for images lacking descriptive alternatives
+- `aria-label` and `<p class="a11y-audio-desc">` descriptions for videos
+
+To run (requires `ANTHROPIC_API_KEY` env var and `ffmpeg` installed):
+```bash
+ANTHROPIC_API_KEY=sk-... python3 a11y_generate.py
+```
+
+It modifies HTML files in-place. The nav header list in the script (`HTML_FILES`) must be kept in sync with actual pages — `media.html` and `recognition.html` are **not** currently in that list.
+
 ## Key patterns
 
-**Nav header is duplicated across every page.** There is no template engine — if you update the nav (add/remove a link, rename a page), you must update it in all 8 HTML files.
+**Nav header is duplicated across every page.** There is no template engine — if you update the nav (add/remove a link, rename a page), you must update it in all 10 HTML files.
 
 **Project filter on index.html** uses [Shuffle.js](https://vestride.github.io/Shuffle/). Each project card is a `.shuffle-item` with a `data-groups` attribute matching a radio button's `value`. Adding a new project requires a new radio label + a new `.shuffle-item` div.
 

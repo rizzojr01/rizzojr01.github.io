@@ -8,11 +8,6 @@ from urllib.parse import quote
 # ----------------------------
 # Config
 # ----------------------------
-import re
-import time
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import quote
 
 CONTACT_EMAIL = "jf4151@nyu.edu"
 UA = f"RizzoLab-Publications/1.2 (mailto:{CONTACT_EMAIL})"
@@ -50,9 +45,6 @@ def safe_title(s: str) -> str:
 
 
 def title_similarity(a: str, b: str) -> float:
-    """
-    Lightweight similarity score: token overlap ratio.
-    """
     a = re.sub(r"[^a-z0-9\s]", " ", (a or "").lower())
     b = re.sub(r"[^a-z0-9\s]", " ", (b or "").lower())
     ta = [t for t in a.split() if t]
@@ -67,9 +59,6 @@ def title_similarity(a: str, b: str) -> float:
 
 
 def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15) -> dict | None:
-    """
-    Search Crossref by bibliographic metadata and return the best candidate item dict, or None.
-    """
     title_q = safe_title(title)
     if not title_q or title_q.lower() == "no title":
         return None
@@ -78,8 +67,6 @@ def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15
     if key in _CROSSREF_META_CACHE:
         return _CROSSREF_META_CACHE[key]
 
-    # Query Crossref. Use bibliographic for title like strings.
-    # Add a second signal if authors exist.
     params = {
         "query.bibliographic": title_q,
         "rows": 5,
@@ -99,7 +86,6 @@ def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15
             _CROSSREF_META_CACHE[key] = None
             return None
 
-        # Choose best by combined score: title similarity first, then Crossref score if present.
         best = None
         best_score = -1.0
 
@@ -109,7 +95,6 @@ def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15
                 cr_title = it["title"][0]
             sim = title_similarity(title_q, cr_title)
 
-            # Crossref sometimes has "score" on items in some contexts
             cr_score = 0.0
             try:
                 cr_score = float(it.get("score") or 0.0)
@@ -121,7 +106,6 @@ def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15
                 best_score = combined
                 best = it
 
-        # Require minimum similarity to avoid bad matches
         if best is not None:
             cr_title = ""
             if isinstance(best.get("title"), list) and best["title"]:
@@ -138,9 +122,6 @@ def crossref_search_by_title_authors(title: str, authors: str, timeout: int = 15
 
 
 def fill_missing_fields_from_crossref(pub: dict) -> dict:
-    """
-    If DOI, year, journal are missing, try Crossref metadata search by title and authors.
-    """
     needs_any = (pub.get("doi") in ("", None)) or (pub.get("year") == "No Year") or (pub.get("journal") == "No Journal")
     if not needs_any:
         return pub
@@ -149,32 +130,29 @@ def fill_missing_fields_from_crossref(pub: dict) -> dict:
     if not cand:
         return pub
 
-    # DOI
     if (not pub.get("doi")) and cand.get("DOI"):
         pub["doi"] = normalize_doi(cand.get("DOI"))
 
-    # Year
     if pub.get("year") == "No Year":
         y = year_from_date_parts(cand)
         if y:
             pub["year"] = y
 
-    # Journal / container title
     if pub.get("journal") == "No Journal":
         ctitle = ""
         if isinstance(cand.get("container-title"), list) and cand["container-title"]:
             ctitle = cand["container-title"][0]
         if ctitle:
             pub["journal"] = ctitle
-        else:
-            # Fallback: for chapters, sometimes "publisher" is present but not a journal
-            # Keep No Journal if nothing reasonable is found.
-            pass
 
     return pub
 
 
-def fetch_publications(url: str, timeout: int = 20):
+# ----------------------------
+# NYU Library source
+# ----------------------------
+
+def fetch_nyu_publications(url: str, timeout: int = 20):
     response = requests.get(url, timeout=timeout, headers={"User-Agent": UA})
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
@@ -188,6 +166,7 @@ def fetch_publications(url: str, timeout: int = 20):
             "doi": "",
             "journal": "No Journal",
             "year": "No Year",
+            "source": "NYU Library",
         }
 
         title_tag = item.find("h3")
@@ -213,7 +192,6 @@ def fetch_publications(url: str, timeout: int = 20):
             if year_match:
                 pub["year"] = year_match.group(0)
 
-        # New: if DOI is missing or year/journal missing, search Crossref by title+authors
         pub = fill_missing_fields_from_crossref(pub)
         time.sleep(0.12)
 
@@ -222,10 +200,121 @@ def fetch_publications(url: str, timeout: int = 20):
     return publications
 
 
+# ----------------------------
+# PubMed source
+# ----------------------------
+
+PUBMED_SEARCH_TERM = (
+    'Rizzo JR[Author] AND '
+    '(NYU OR "New York University" OR rehabilitation OR "assistive technology" '
+    'OR "visual impairment" OR neurorehabilitation OR "low vision" OR "Rusk")'
+)
+PUBMED_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+PUBMED_PAGE_SIZE = 200  # max allowed by NCBI
+
+
+def fetch_pubmed_ids(term: str) -> list[str]:
+    """Return all PMIDs matching the search term."""
+    all_ids = []
+    retstart = 0
+
+    while True:
+        params = {
+            "db": "pubmed",
+            "term": term,
+            "retmax": PUBMED_PAGE_SIZE,
+            "retstart": retstart,
+            "retmode": "json",
+            "sort": "pub_date",
+        }
+        try:
+            r = requests.get(
+                f"{PUBMED_BASE}/esearch.fcgi",
+                params=params,
+                headers={"User-Agent": UA},
+                timeout=30,
+            )
+            r.raise_for_status()
+            data = r.json()
+            result = data.get("esearchresult", {})
+            ids = result.get("idlist", [])
+            all_ids.extend(ids)
+            total = int(result.get("count", 0))
+            retstart += len(ids)
+            if retstart >= total or not ids:
+                break
+            time.sleep(0.35)
+        except Exception as e:
+            print(f"  PubMed esearch error: {e}")
+            break
+
+    return all_ids
+
+
+def fetch_pubmed_summaries(pmids: list[str]) -> list[dict]:
+    """Fetch esummary records for a list of PMIDs and return normalized pub dicts."""
+    pubs = []
+    batch_size = 200
+
+    for i in range(0, len(pmids), batch_size):
+        batch = pmids[i : i + batch_size]
+        try:
+            r = requests.get(
+                f"{PUBMED_BASE}/esummary.fcgi",
+                params={"db": "pubmed", "id": ",".join(batch), "retmode": "json"},
+                headers={"User-Agent": UA},
+                timeout=30,
+            )
+            r.raise_for_status()
+            data = r.json().get("result", {})
+        except Exception as e:
+            print(f"  PubMed esummary error: {e}")
+            continue
+
+        for pmid in batch:
+            art = data.get(pmid)
+            if not art or not isinstance(art, dict):
+                continue
+
+            # Authors
+            author_list = art.get("authors", [])
+            authors = ", ".join(a.get("name", "") for a in author_list if a.get("name"))
+
+            # DOI
+            doi = next(
+                (
+                    obj.get("value", "")
+                    for obj in art.get("articleids", [])
+                    if obj.get("idtype") == "doi"
+                ),
+                "",
+            )
+
+            # Year (pubdate is like "2024 Mar" or "2024")
+            pubdate = art.get("pubdate", "")
+            year_match = re.search(r"\b(19|20)\d{2}\b", pubdate)
+            year = year_match.group(0) if year_match else "No Year"
+
+            pub = {
+                "title": art.get("title", "No Title").rstrip("."),
+                "authors": authors or "No Authors",
+                "doi": normalize_doi(doi),
+                "journal": art.get("fulljournalname", "") or art.get("source", "") or "No Journal",
+                "year": year,
+                "source": "PubMed",
+                "pmid": pmid,
+            }
+            pubs.append(pub)
+
+        time.sleep(0.35)
+
+    return pubs
+
 
 # ----------------------------
 # HTML helpers
 # ----------------------------
+
 def esc(s: str) -> str:
     if s is None:
         return ""
@@ -253,6 +342,7 @@ def pub_block(pub: dict) -> str:
     journal = esc(pub.get("journal") or "No Journal")
     year = esc(pub.get("year") or "No Year")
     doi = (pub.get("doi") or "").strip()
+    pmid = pub.get("pmid", "")
 
     data_search = esc(
         f"{pub.get('title','')} {pub.get('authors','')} {pub.get('journal','')} {pub.get('year','')} {doi}".lower()
@@ -261,10 +351,12 @@ def pub_block(pub: dict) -> str:
     if doi:
         doi_href = f"https://doi.org/{doi}"
         doi_link = f'<a href="{esc(doi_href)}" target="_blank" rel="noopener">{esc(doi)}</a>'
-
     else:
         doi_link = "No DOI"
-        doi_copy_btn = ""
+
+    pmid_link = ""
+    if pmid:
+        pmid_link = f'<div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/{esc(pmid)}/" target="_blank" rel="noopener">PMID {esc(pmid)}</a></span></div>'
 
     return f"""
         <div class="publication pub-card" data-search="{data_search}">
@@ -279,75 +371,112 @@ def pub_block(pub: dict) -> str:
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> {doi_link}</span>
             </div>
+            {pmid_link}
           </div>
         </div>
     """.rstrip()
 
 
+# ----------------------------
+# Main
+# ----------------------------
 
-# ----------------------------
-# Main: fetch all pages + write publications.html
-# ----------------------------
 def main():
-    base_url = (
+    # ── Fetch from NYU Library ──────────────────────────────────────────────
+    nyu_base_url = (
         "https://library.med.nyu.edu/api/publications/"
         "?person=rizzoj01&sort=display_rank&in-biosketch=yes&offset={}"
     )
 
-    all_pubs = []
+    nyu_pubs = []
     offset = 0
     step = 10
 
+    print("=== Fetching from NYU Library ===")
     while True:
-        url = base_url.format(offset)
-        print("Fetching:", url)
+        url = nyu_base_url.format(offset)
+        print("  Fetching:", url)
 
-        pubs = fetch_publications(url)
+        pubs = fetch_nyu_publications(url)
         if not pubs:
             break
 
-        all_pubs.extend(pubs)
+        nyu_pubs.extend(pubs)
         offset += step
         time.sleep(0.2)
 
         if offset > 2000:
             break
 
-    # Deduplicate
-    seen = set()
+    print(f"  NYU Library: {len(nyu_pubs)} publications fetched.")
+
+    # ── Fetch from PubMed ──────────────────────────────────────────────────
+    print("\n=== Fetching from PubMed ===")
+    print(f"  Search term: {PUBMED_SEARCH_TERM}")
+    pmids = fetch_pubmed_ids(PUBMED_SEARCH_TERM)
+    print(f"  Found {len(pmids)} PMIDs. Fetching summaries…")
+    pubmed_pubs = fetch_pubmed_summaries(pmids)
+    print(f"  PubMed: {len(pubmed_pubs)} publications fetched.")
+
+    # ── Merge & deduplicate ─────────────────────────────────────────────────
+    print("\n=== Merging sources ===")
+    all_pubs = nyu_pubs + pubmed_pubs
+
+    seen_doi: set[str] = set()
+    seen_title: set[tuple] = set()
     deduped = []
+
     for p in all_pubs:
         doi = (p.get("doi") or "").strip().lower()
-        key = ("doi", doi) if doi else ("ty", (p.get("title") or "").strip().lower(), (p.get("year") or "").strip())
-        if key in seen:
+        title_key = re.sub(r"[^a-z0-9]", "", (p.get("title") or "").lower())
+        year_key = (p.get("year") or "").strip()
+
+        if doi and doi in seen_doi:
             continue
-        seen.add(key)
+        ty_key = (title_key, year_key)
+        if ty_key in seen_title and not doi:
+            continue
+
+        if doi:
+            seen_doi.add(doi)
+        seen_title.add(ty_key)
         deduped.append(p)
 
-    # Sort by year desc, then title
-    deduped.sort(key=lambda p: (year_int(p.get("year")), (p.get("title") or "").lower()), reverse=True)
+    print(f"  Total after deduplication: {len(deduped)} (from {len(all_pubs)} raw)")
 
-    # Group by year
-    grouped = {}
+    # ── Sort & group by year ────────────────────────────────────────────────
+    deduped.sort(
+        key=lambda p: (year_int(p.get("year")), (p.get("title") or "").lower()),
+        reverse=True,
+    )
+
+    grouped: dict[str, list] = {}
     for p in deduped:
         y = p.get("year") or "No Year"
         grouped.setdefault(y, []).append(p)
 
     years_sorted = sorted(grouped.keys(), key=lambda y: year_int(y), reverse=True)
 
+    # ── Build HTML ──────────────────────────────────────────────────────────
     html_head = """<!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Basic Page Needs -->
   <meta charset="utf-8">
-  <title>Publications | Rizzo Lab</title>
+  <title>Rizzo Labs | Publications</title>
 
+  <!-- Mobile Specific Metas -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Publications from the Rizzo Lab">
+  <meta name="description" content="Publications from the Rizzo Lab at NYU Langone">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Rizzo Labs">
+  <meta name="theme-name" content="constra" />
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- CSS (Constra) -->
+  <!-- CSS -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
@@ -356,106 +485,95 @@ def main():
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+
   <style>
-    .pub-controls{
-      background:#fff;
-      border:1px solid rgba(0,0,0,0.08);
-      border-radius:10px;
-      padding:14px 16px;
-      margin-bottom:22px;
+    .pub-controls {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
     }
-    .pub-controls .form-control{
-      border-radius:8px;
-      height:44px;
+    .pub-controls .form-control {
+      border-radius: 8px;
+      height: 44px;
     }
-    .pub-controls .pub-stats{
-      color:#666;
-      font-size:0.95rem;
-      margin-top:8px;
-    }
-
-    .pub-year-group{
-      border:1px solid rgba(0,0,0,0.08);
-      border-radius:10px;
-      overflow:hidden;
-      background:#fff;
-      margin-bottom:18px;
-    }
-    .pub-year-toggle{
-      width:100%;
-      border:0;
-      background:#f8f8f8;
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .pub-year-toggle:focus{
-      outline:none;
-    }
-    .pub-year-label{
-      font-size:1.05rem;
-    }
-    .pub-count{
-      font-weight:600;
-      color:#666;
-      margin-left:10px;
-    }
-    .pub-chevron{
-      transition:transform 0.15s ease-in-out;
-      color:#111;
-    }
-    .pub-year-toggle[aria-expanded="true"] .pub-chevron{
-      transform:rotate(180deg);
+    .pub-controls .pub-stats {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 8px;
     }
 
-    .pub-year-body{
-      padding:16px;
+    .pub-year-group {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 18px;
+    }
+    .pub-year-toggle {
+      width: 100%;
+      border: 0;
+      background: #f8f8f8;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .pub-year-toggle:focus { outline: none; }
+    .pub-year-label { font-size: 1.05rem; }
+    .pub-count { font-weight: 600; color: #666; margin-left: 10px; }
+    .pub-chevron {
+      transition: transform 0.15s ease-in-out;
+      color: #111;
+    }
+    .pub-year-toggle[aria-expanded="true"] .pub-chevron {
+      transform: rotate(180deg);
     }
 
-    .publication{
-      padding:16px 18px;
-      margin-bottom:14px;
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,0.06);
-      border-radius:10px;
-    }
-    .pub-title{
-      font-size:1.05rem;
-      font-weight:700;
-      margin-bottom:6px;
-    }
-    .pub-authors,.pub-journal,.pub-year,.pub-doi{
-      font-size:0.95rem;
-      margin-bottom:4px;
-    }
-    .pub-doi a{
-      word-break:break-word;
-    }
+    .pub-year-body { padding: 16px; }
 
-    .pub-year-group.is-empty{
-      display:none;
+    .publication {
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
     }
+    .pub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pub-meta { display: flex; flex-direction: column; gap: 4px; }
+    .meta-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 0.93rem;
+    }
+    .meta-item i { width: 14px; color: #888; flex-shrink: 0; }
+    .pub-doi a { word-break: break-word; }
+
+    .pub-year-group.is-empty { display: none; }
   </style>
 </head>
 
 <body>
 
+<!-- Header -->
 <header id="header" class="header-one">
   <div class="site-navigation">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-dark p-0">
-
-            <!-- Logo -->
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-              <img src="images/web_logo.png"
-                   alt="Rizzo Labs logo"
-                   class="nav-logo">
-            </a>
 
             <button class="navbar-toggler" type="button"
               data-toggle="collapse"
@@ -476,14 +594,12 @@ def main():
 
                 <!-- Projects -->
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="projects.html">
-                    Projects
-                  </a>
+                  <a class="nav-link" href="projects.html">Projects</a>
                 </li>
 
-                <!-- Funding & Awards -->
+                <!-- Funding -->
                 <li class="nav-item">
-                  <a class="nav-link" href="funding.html">Funding &amp; Awards</a>
+                  <a class="nav-link" href="funding.html">Funding</a>
                 </li>
 
                 <!-- Publications -->
@@ -491,19 +607,29 @@ def main():
                   <a class="nav-link" href="publications.html">Publications</a>
                 </li>
 
+                <!-- Recognition -->
+                <li class="nav-item">
+                  <a class="nav-link" href="recognition.html">Recognition</a>
+                </li>
+
+                <!-- Media -->
+                <li class="nav-item">
+                  <a class="nav-link" href="media.html">Media</a>
+                </li>
+
                 <!-- Team -->
                 <li class="nav-item">
                   <a class="nav-link" href="team.html">Team</a>
                 </li>
 
-                <!-- Join -->
-                <li class="nav-item">
-                  <a class="nav-link" href="join.html">Join</a>
-                </li>
-
                 <!-- Photos -->
                 <li class="nav-item">
                   <a class="nav-link" href="photos.html">Photos</a>
+                </li>
+
+                <!-- Join -->
+                <li class="nav-item">
+                  <a class="nav-link" href="join.html">Join</a>
                 </li>
 
                 <!-- Contact -->
@@ -512,14 +638,27 @@ def main():
                 </li>
 
               </ul>
+              <!-- Logo on right -->
+              <a class="navbar-brand ml-3" href="index.html">
+                <img src="images/web_logo.png" alt="Rizzo Labs" style="height:42px; filter:brightness(0) invert(1);">
+              </a>
             </div>
-
           </nav>
         </div>
       </div>
+
+      <div class="search-block" style="display: none;">
+        <label for="search-field" class="w-100 mb-0">
+          <input type="text" class="form-control" id="search-field"
+            placeholder="Search publications, projects, people">
+        </label>
+        <span class="search-close">&times;</span>
+      </div>
+
     </div>
   </div>
 </header>
+<!-- End Header -->
 
 <div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
   <div class="banner-text">
@@ -534,18 +673,12 @@ def main():
 <section id="main-container" class="main-container pb-4">
   <div class="container">
 
-    <div class="row text-center">
-      <div class="col-lg-12">
-        <h3 class="section-sub-title">Publications</h3>
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-lg-12">
         <div class="pub-controls">
           <input id="pubSearch" type="text" class="form-control" placeholder="Search by title, author, journal, year, or DOI">
           <div class="pub-stats">
-            Showing <span id="pubShown">0</span> of <span id="pubTotal">0</span>
+            Showing <span id="pubShown">0</span> of <span id="pubTotal">0</span> publications
           </div>
         </div>
       </div>
@@ -555,6 +688,7 @@ def main():
       <div class="col-lg-12">
         <div id="pubGroups">
 """
+
     html_tail = """
         </div>
       </div>
@@ -563,55 +697,157 @@ def main():
   </div>
 </section>
 
+<!-- Footer -->
 <footer id="footer" class="footer">
   <div class="footer-main">
     <div class="container">
+
       <div class="row">
 
-        <div class="col-lg-4 footer-widget">
+        <!-- Column 1: Contact -->
+        <div class="col-lg-4 col-md-6 footer-widget">
           <h3 class="widget-title">Contact</h3>
-          <p>
-            NYU Langone Ambulatory Care Center<br>
-            Rusk Rehabilitation<br>
-            240 E 38th St, 17th Floor<br>
-            New York, NY 10016
-          </p>
-          <p><a href="mailto:jr.rizzo@nyulangone.org">jr.rizzo@nyulangone.org</a></p>
+
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2">
+              <i class="fa fa-map-marker-alt mr-2" aria-hidden="true"></i>
+              <span>
+                <strong>Location</strong><br>
+                NYU Langone Ambulatory Care Center<br>
+                Rusk Rehabilitation<br>
+                240 E 38th St, 17th Floor,<br>
+                New York, NY 10016
+              </span>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:JohnRoss.Rizzo@nyulangone.org">JohnRoss.Rizzo@nyulangone.org</a>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:mahya.beheshti@nyulangone.org">mahya.beheshti@nyulangone.org</a>
+            </li>
+          </ul>
+
+          <div class="footer-social">
+            <h3 class="widget-title">Connect</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="d-inline-block">
+                <a aria-label="LinkedIn"
+                   href="https://www.linkedin.com/in/jr-rizzo-3b447125/"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="X"
+                   href="https://x.com/jrrizzo00"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="GitHub"
+                   href="https://github.com/rizzojr01"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="col-lg-4 footer-widget">
+        <!-- Column 2: Map -->
+        <div class="col-lg-4 col-md-6 footer-widget">
           <h3 class="widget-title">Map</h3>
-          <iframe
-            loading="lazy"
-            style="border:0;width:100%;height:200px;"
-            src="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016&output=embed">
-          </iframe>
-        </div>
 
-        <div class="col-lg-4 footer-widget">
-          <h3 class="widget-title">Follow</h3>
-          <p>
-            <a href="https://www.linkedin.com/in/jr-rizzo-3b447125/">LinkedIn</a><br>
-            <a href="https://github.com/rizzojr01">GitHub</a>
+          <div class="footer-map-wrapper">
+            <iframe
+              title="Rizzo Labs map"
+              class="footer-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016&output=embed">
+            </iframe>
+          </div>
+
+          <p class="mt-3 mb-0">
+            <a class="read-more"
+               href="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016"
+               target="_blank" rel="noopener">
+              Open in Google Maps
+            </a>
           </p>
         </div>
 
+        <!-- Column 3: Subscription -->
+        <div class="col-lg-4 col-md-12 footer-widget">
+          <h3 class="widget-title">Stay Updated</h3>
+
+          <p class="mb-3">Subscribe to receive:</p>
+          <ul class="list-unstyled mb-3" style="font-size:0.9rem; color:#ccc;">
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Publication alerts for new manuscripts from our lab</li>
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>News on lab milestones, talks, and events</li>
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Invitations to participate in studies we are actively recruiting for</li>
+          </ul>
+
+          <form class="footer-newsletter" id="mc-form" novalidate>
+            <div class="form-group mb-2">
+              <label class="sr-only" for="mc-email">Email</label>
+              <input
+                id="mc-email"
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Subscribe
+            </button>
+
+            <small id="mc-message" class="d-block mt-2 footer-note"></small>
+          </form>
+
+          <small class="d-block mt-2 footer-note">No spam. Unsubscribe anytime.</small>
+        </div>
+
+      </div><!--/ Row end -->
+
+    </div><!--/ Container end -->
+  </div><!--/ Footer main end -->
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+          <div class="copyright-info">
+            <span>Copyright &copy; <span id="footer-year">2024</span> Rizzo Labs</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="copyright text-center">
-    &copy; <span id="year"></span> Rizzo Lab
-  </div>
 </footer>
+<!-- End Footer -->
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
 </script>
 
+<!-- Scripts -->
 <script src="plugins/jQuery/jquery.min.js"></script>
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/slick/slick-animation.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox.js"></script>
+<script src="plugins/shuffle/shuffle.min.js" defer></script>
 <script src="js/script.js"></script>
+
+<script src="accessibility.js"></script>
 
 <script>
   (function () {
@@ -707,10 +943,9 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(full_html)
 
-    print(f"Wrote {out_path} with {len(deduped)} publications (raw fetched: {len(all_pubs)}).")
-    print(f"Year lookup cache size: {len(_YEAR_CACHE)}")
+    print(f"\nWrote {out_path} with {len(deduped)} publications.")
+    print(f"  Sources: NYU Library ({len(nyu_pubs)}) + PubMed ({len(pubmed_pubs)})")
 
 
 if __name__ == "__main__":
     main()
-

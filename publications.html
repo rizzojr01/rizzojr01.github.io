@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Basic Page Needs -->
   <meta charset="utf-8">
-  <title>Publications | Rizzo Lab</title>
+  <title>Rizzo Labs | Publications</title>
 
+  <!-- Mobile Specific Metas -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Publications from the Rizzo Lab">
+  <meta name="description" content="Publications from the Rizzo Lab at NYU Langone">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Rizzo Labs">
+  <meta name="theme-name" content="constra" />
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- CSS (Constra) -->
+  <!-- CSS -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
@@ -19,97 +25,89 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    .pub-controls{
-      background:#fff;
-      border:1px solid rgba(0,0,0,0.08);
-      border-radius:10px;
-      padding:14px 16px;
-      margin-bottom:22px;
-    }
-    .pub-controls .form-control{
-      border-radius:8px;
-      height:44px;
-    }
-    .pub-controls .pub-stats{
-      color:#666;
-      font-size:0.95rem;
-      margin-top:8px;
-    }
-
-    .pub-year-group{
-      border:1px solid rgba(0,0,0,0.08);
-      border-radius:10px;
-      overflow:hidden;
-      background:#fff;
-      margin-bottom:18px;
-    }
-    .pub-year-toggle{
-      width:100%;
-      border:0;
-      background:#f8f8f8;
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .pub-year-toggle:focus{
-      outline:none;
-    }
-    .pub-year-label{
-      font-size:1.05rem;
-    }
-    .pub-count{
-      font-weight:600;
-      color:#666;
-      margin-left:10px;
-    }
-    .pub-chevron{
-      transition:transform 0.15s ease-in-out;
-      color:#111;
-    }
-    .pub-year-toggle[aria-expanded="true"] .pub-chevron{
-      transform:rotate(180deg);
-    }
-
-    .pub-year-body{
-      padding:16px;
-    }
-
-    .publication{
-      padding:16px 18px;
-      margin-bottom:14px;
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,0.06);
-      border-radius:10px;
-    }
-    .pub-title{
-      font-size:1.05rem;
-      font-weight:700;
-      margin-bottom:6px;
-    }
-    .pub-authors,.pub-journal,.pub-year,.pub-doi{
-      font-size:0.95rem;
-      margin-bottom:4px;
-    }
-    .pub-doi a{
-      word-break:break-word;
-    }
-
-    .pub-year-group.is-empty{
-      display:none;
-    }
-  </style>
   <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+
+  <style>
+    .pub-controls {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+    }
+    .pub-controls .form-control {
+      border-radius: 8px;
+      height: 44px;
+    }
+    .pub-controls .pub-stats {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .pub-year-group {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 18px;
+    }
+    .pub-year-toggle {
+      width: 100%;
+      border: 0;
+      background: #f8f8f8;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .pub-year-toggle:focus { outline: none; }
+    .pub-year-label { font-size: 1.05rem; }
+    .pub-count { font-weight: 600; color: #666; margin-left: 10px; }
+    .pub-chevron {
+      transition: transform 0.15s ease-in-out;
+      color: #111;
+    }
+    .pub-year-toggle[aria-expanded="true"] .pub-chevron {
+      transform: rotate(180deg);
+    }
+
+    .pub-year-body { padding: 16px; }
+
+    .publication {
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
+    }
+    .pub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pub-meta { display: flex; flex-direction: column; gap: 4px; }
+    .meta-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 0.93rem;
+    }
+    .meta-item i { width: 14px; color: #888; flex-shrink: 0; }
+    .pub-doi a { word-break: break-word; }
+
+    .pub-year-group.is-empty { display: none; }
+  </style>
 </head>
 
 <body>
 
+<!-- Header -->
 <header id="header" class="header-one">
   <div class="site-navigation">
     <div class="container">
@@ -136,9 +134,7 @@
 
                 <!-- Projects -->
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="projects.html">
-                    Projects
-                  </a>
+                  <a class="nav-link" href="projects.html">Projects</a>
                 </li>
 
                 <!-- Funding -->
@@ -187,13 +183,22 @@
                 <img src="images/web_logo.png" alt="Rizzo Labs" style="height:42px; filter:brightness(0) invert(1);">
               </a>
             </div>
-
           </nav>
         </div>
       </div>
+
+      <div class="search-block" style="display: none;">
+        <label for="search-field" class="w-100 mb-0">
+          <input type="text" class="form-control" id="search-field"
+            placeholder="Search publications, projects, people">
+        </label>
+        <span class="search-close">&times;</span>
+      </div>
+
     </div>
   </div>
 </header>
+<!-- End Header -->
 
 <div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
   <div class="banner-text">
@@ -205,7 +210,7 @@
   </div>
 </div>
 
-<section id="main-container" class="main-container">
+<section id="main-container" class="main-container pb-4">
   <div class="container">
 
     <div class="row">
@@ -213,7 +218,7 @@
         <div class="pub-controls">
           <input id="pubSearch" type="text" class="form-control" placeholder="Search by title, author, journal, year, or DOI">
           <div class="pub-stats">
-            Showing <span id="pubShown">0</span> of <span id="pubTotal">0</span>
+            Showing <span id="pubShown">0</span> of <span id="pubTotal">0</span> publications
           </div>
         </div>
       </div>
@@ -229,7 +234,7 @@
               aria-expanded="true" aria-controls="pubs-2026">
               <div>
                 <span class="pub-year-label">2026</span>
-                <span class="pub-count">(4)</span>
+                <span class="pub-count">(5)</span>
               </div>
               <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
             </button>
@@ -249,36 +254,39 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/s26031058" target="_blank" rel="noopener">10.3390/s26031058</a></span>
             </div>
+            
           </div>
         </div>
 
-        <div class="publication pub-card" data-search="sensory maps 2.0: new approaches and visualizations in support of sensory processing disorders celestin, nadia merve; beheshti, mahya; feng, junchi; clark, stella; eidlisz, jordan; hudson, todd e; williams, lauren hough; rizzo, john-ross disability and health journal 2026 10.1016/j.dhjo.2026.102033">
+        <div class="publication pub-card" data-search="sensory maps 2.0: new approaches and visualizations in support of sensory processing disorders celestin, nadia merve; beheshti, mahya; feng, junchi; clark, stella; eidlisz, jordan; hudson, todd e; williams, lauren hough; rizzo, john-ross disability &amp; health journal 2026 10.1016/j.dhjo.2026.102033">
           <div class="pub-title">Sensory maps 2.0: New approaches and visualizations in support of sensory processing disorders</div>
 
           <div class="pub-meta">
             <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Celestin, Nadia Merve; Beheshti, Mahya; Feng, Junchi; Clark, Stella; Eidlisz, Jordan; Hudson, Todd E; Williams, Lauren Hough; Rizzo, John-Ross</span></div>
-            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Disability and health journal</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Disability &amp; health journal</span></div>
             <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2026</span></div>
 
             <div class="meta-item meta-doi">
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.dhjo.2026.102033" target="_blank" rel="noopener">10.1016/j.dhjo.2026.102033</a></span>
             </div>
+            
           </div>
         </div>
 
-        <div class="publication pub-card" data-search="robust computer-vision based construction site detection for assistive-technology applications feng, junchi; hamilton-fletcher, giles; ballem, nikhil; batavia, michael; wang, yifei; zhong, jiuling; beheshti, mahya; porfiri, maurizio; rizzo, john-ross disability and rehabilitation 2026 10.1080/17483107.2026.2618130">
+        <div class="publication pub-card" data-search="robust computer-vision based construction site detection for assistive-technology applications feng, junchi; hamilton-fletcher, giles; ballem, nikhil; batavia, michael; wang, yifei; zhong, jiuling; beheshti, mahya; porfiri, maurizio; rizzo, john-ross disability &amp; rehabilitation 2026 10.1080/17483107.2026.2618130">
           <div class="pub-title">Robust computer-vision based construction site detection for assistive-technology applications</div>
 
           <div class="pub-meta">
             <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Feng, Junchi; Hamilton-Fletcher, Giles; Ballem, Nikhil; Batavia, Michael; Wang, Yifei; Zhong, Jiuling; Beheshti, Mahya; Porfiri, Maurizio; Rizzo, John-Ross</span></div>
-            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Disability and rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Disability &amp; rehabilitation</span></div>
             <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2026</span></div>
 
             <div class="meta-item meta-doi">
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2026.2618130" target="_blank" rel="noopener">10.1080/17483107.2026.2618130</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -294,6 +302,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2025.2610357" target="_blank" rel="noopener">10.1080/17483107.2025.2610357</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="patient-scientists: lived experience combined with academic rigor in rehabilitation research kim, sonya; rizzo, johnross; heyn, patricia c archives of physical medicine &amp; rehabilitation 2026 10.1016/j.apmr.2026.03.020">
+          <div class="pub-title">Patient-scientists: Lived experience combined with academic rigor in rehabilitation research</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Kim, Sonya; Rizzo, JohnRoss; Heyn, Patricia C</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Archives of physical medicine &amp; rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2026</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.apmr.2026.03.020" target="_blank" rel="noopener">10.1016/j.apmr.2026.03.020</a></span>
+            </div>
+            
           </div>
         </div>
 
@@ -307,7 +332,7 @@
               aria-expanded="false" aria-controls="pubs-2025">
               <div>
                 <span class="pub-year-label">2025</span>
-                <span class="pub-count">(9)</span>
+                <span class="pub-count">(15)</span>
               </div>
               <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
             </button>
@@ -327,6 +352,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s11524-025-00962-3" target="_blank" rel="noopener">10.1007/s11524-025-00962-3</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -342,6 +368,39 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/ojemb.2025.3607816" target="_blank" rel="noopener">10.1109/ojemb.2025.3607816</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="strengthening physical medicine and rehabilitation departmental research: insights from the association of academic physiatrists research consulting program wang qm, lencioni s, annaswamy t, bean a, huber j, kumbhare d, li s, paganoni s, rizzo jr, scholten p, suskauer s, swanson r, schnappinger a, whyte j, arnold wd, aap research committee american journal of physical medicine &amp; rehabilitation 2025 10.1097/phm.0000000000002769">
+          <div class="pub-title">Strengthening Physical Medicine and Rehabilitation Departmental Research: Insights From the Association of Academic Physiatrists Research Consulting Program</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Wang QM, Lencioni S, Annaswamy T, Bean A, Huber J, Kumbhare D, Li S, Paganoni S, Rizzo JR, Scholten P, Suskauer S, Swanson R, Schnappinger A, Whyte J, Arnold WD, AAP Research Committee</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> American journal of physical medicine &amp; rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000002769" target="_blank" rel="noopener">10.1097/phm.0000000000002769</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41065593/" target="_blank" rel="noopener">PMID 41065593</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="residual gaze behavior during navigation in blindness and low vision feng j, garcia-piña f, beheshti m, hudson te, seiple w, rizzo jr arxiv 2025 ">
+          <div class="pub-title">Residual Gaze Behavior During Navigation in Blindness and Low Vision</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Feng J, Garcia-Piña F, Beheshti M, Hudson TE, Seiple W, Rizzo JR</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> ArXiv</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> No DOI</span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41001566/" target="_blank" rel="noopener">PMID 41001566</a></span></div>
           </div>
         </div>
 
@@ -357,6 +416,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.amjsurg.2024.116062" target="_blank" rel="noopener">10.1016/j.amjsurg.2024.116062</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -372,6 +432,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2025.2590679" target="_blank" rel="noopener">10.1080/17483107.2025.2590679</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -387,6 +448,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2025.2463541" target="_blank" rel="noopener">10.1080/17483107.2025.2463541</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="head and eye control in persons with low vision during urban navigation beheshti m, rizzo jr, bergquist-kosumi s, kasturirangan a, deshpande s, hudson t arxiv 2025 ">
+          <div class="pub-title">Head and Eye Control in Persons with Low Vision during Urban Navigation</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Beheshti M, Rizzo JR, Bergquist-Kosumi S, Kasturirangan A, Deshpande S, Hudson T</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> ArXiv</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> No DOI</span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41256896/" target="_blank" rel="noopener">PMID 41256896</a></span></div>
           </div>
         </div>
 
@@ -402,6 +480,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2025.2458112" target="_blank" rel="noopener">10.1080/17483107.2025.2458112</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="gaps in physical medicine and rehabilitation for blindness and low vision: the imperative of rehabilitation for visual disability gersony a, han yh, beheshti m, hamilton-fletcher g, stants h, stolfi a, roberts p, rao s, rizzo jj american journal of physical medicine &amp; rehabilitation 2025 10.1097/phm.0000000000002666">
+          <div class="pub-title">Gaps in Physical Medicine and Rehabilitation for Blindness and Low Vision: The Imperative of Rehabilitation for Visual Disability</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Gersony A, Han YH, Beheshti M, Hamilton-Fletcher G, Stants H, Stolfi A, Roberts P, Rao S, Rizzo JJ</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> American journal of physical medicine &amp; rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000002666" target="_blank" rel="noopener">10.1097/phm.0000000000002666</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/39773731/" target="_blank" rel="noopener">PMID 39773731</a></span></div>
           </div>
         </div>
 
@@ -417,6 +512,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fdgth.2025.1719746" target="_blank" rel="noopener">10.3389/fdgth.2025.1719746</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="editorial on the special issue &quot;image and video processing for blind and visually impaired&quot; zhu z, rizzo jr, tang h journal of imaging 2025 10.3390/jimaging11120430">
+          <div class="pub-title">Editorial on the Special Issue &quot;Image and Video Processing for Blind and Visually Impaired&quot;</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Zhu Z, Rizzo JR, Tang H</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Journal of imaging</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/jimaging11120430" target="_blank" rel="noopener">10.3390/jimaging11120430</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41440570/" target="_blank" rel="noopener">PMID 41440570</a></span></div>
           </div>
         </div>
 
@@ -432,6 +544,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1371/journal.pone.0338948" target="_blank" rel="noopener">10.1371/journal.pone.0338948</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -447,6 +560,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/10400435.2025.2490632" target="_blank" rel="noopener">10.1080/10400435.2025.2490632</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="adequacy of and barriers to breast cancer screening in women with disabilities house ms, keegan g, heller sl, morris ma, hamilton-fletcher g, lam c, rizzo jr, joseph ka jama surgery 2025 10.1001/jamasurg.2025.3424">
+          <div class="pub-title">Adequacy of and Barriers to Breast Cancer Screening in Women With Disabilities</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> House MS, Keegan G, Heller SL, Morris MA, Hamilton-Fletcher G, Lam C, Rizzo JR, Joseph KA</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> JAMA surgery</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2025</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1001/jamasurg.2025.3424" target="_blank" rel="noopener">10.1001/jamasurg.2025.3424</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/40928769/" target="_blank" rel="noopener">PMID 40928769</a></span></div>
           </div>
         </div>
 
@@ -460,13 +590,61 @@
               aria-expanded="false" aria-controls="pubs-2024">
               <div>
                 <span class="pub-year-label">2024</span>
-                <span class="pub-count">(9)</span>
+                <span class="pub-count">(14)</span>
               </div>
               <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
             </button>
 
             <div id="pubs-2024" class="collapse ">
               <div class="pub-year-body">
+
+        <div class="publication pub-card" data-search="wearables for persons with blindness and low vision: form factor matters han yh, beheshti m, jones b, hudson te, seiple wh, rizzo jj assistive technology : the official journal of resna 2024 10.1080/10400435.2023.2205490">
+          <div class="pub-title">Wearables for persons with blindness and low vision: form factor matters</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Han YH, Beheshti M, Jones B, Hudson TE, Seiple WH, Rizzo JJ</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Assistive technology : the official journal of RESNA</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2024</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/10400435.2023.2205490" target="_blank" rel="noopener">10.1080/10400435.2023.2205490</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/37115821/" target="_blank" rel="noopener">PMID 37115821</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="visualizing simultaneous eye-hand movements in a matlab dashboard te h, a s, a ss, m b, jr r methodsx 2024 10.1016/j.mex.2024.102722">
+          <div class="pub-title">Visualizing simultaneous eye-hand movements in a MATLAB dashboard</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Te H, A S, A SS, M B, Jr R</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> MethodsX</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2024</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.mex.2024.102722" target="_blank" rel="noopener">10.1016/j.mex.2024.102722</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/38774686/" target="_blank" rel="noopener">PMID 38774686</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="using transfer learning to refine object detection models for blind and low vision users bhandari a, batutis gs, jain a, sico mc, hamilton-fletcher g, feng c, hudson te, rizzo jr, chan kc annual international conference of the ieee engineering in medicine and biology society. ieee engineering in medicine and biology society. annual international conference 2024 10.1109/embc53108.2024.10782343">
+          <div class="pub-title">Using Transfer Learning to Refine Object Detection Models for Blind and Low Vision Users</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Bhandari A, Batutis GS, Jain A, Sico MC, Hamilton-Fletcher G, Feng C, Hudson TE, Rizzo JR, Chan KC</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2024</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/embc53108.2024.10782343" target="_blank" rel="noopener">10.1109/embc53108.2024.10782343</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/40039335/" target="_blank" rel="noopener">PMID 40039335</a></span></div>
+          </div>
+        </div>
 
         <div class="publication pub-card" data-search="the criticality of reasonable accommodations: a scoping review revealing gaps in care for patients with blindness and low vision keegan, grace; rizzo, john-ross; morris, megan a; joseph, kathie-ann american journal of surgery 2024 10.1016/j.amjsurg.2024.116085">
           <div class="pub-title">The criticality of reasonable accommodations: A scoping review revealing gaps in care for patients with blindness and low vision</div>
@@ -480,6 +658,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.amjsurg.2024.116085" target="_blank" rel="noopener">10.1016/j.amjsurg.2024.116085</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -495,6 +674,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.apmr.2024.06.021" target="_blank" rel="noopener">10.1016/j.apmr.2024.06.021</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -510,6 +690,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.2196/55776" target="_blank" rel="noopener">10.2196/55776</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="low-frequency motor cortex eeg predicts four rates of force development o&#39;keeffe r, shirazi sy, vecchio ad, ibaaez j, mrachacz-kersting n, bighamian r, rizzo jr, farina d, atashzar sf ieee transactions on haptics 2024 10.1109/toh.2024.3428308">
+          <div class="pub-title">Low-Frequency Motor Cortex EEG Predicts Four Rates of Force Development</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> O&#39;Keeffe R, Shirazi SY, Vecchio AD, Ibaaez J, Mrachacz-Kersting N, Bighamian R, Rizzo JR, Farina D, Atashzar SF</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> IEEE transactions on haptics</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2024</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/toh.2024.3428308" target="_blank" rel="noopener">10.1109/toh.2024.3428308</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/39008387/" target="_blank" rel="noopener">PMID 39008387</a></span></div>
           </div>
         </div>
 
@@ -525,6 +722,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/tgr.0000000000000424" target="_blank" rel="noopener">10.1097/tgr.0000000000000424</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="evidence-based practice education in physical medicine and rehabilitation residency programs: a canadian national survey kumbhare d, rizzo jr, bean a, annaswamy t, and the aap research committee: american journal of physical medicine &amp; rehabilitation 2024 10.1097/phm.0000000000002455">
+          <div class="pub-title">Evidence-based practice education in physical medicine and rehabilitation residency programs: A Canadian national survey</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Kumbhare D, Rizzo JR, Bean A, Annaswamy T, and the AAP Research Committee:</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> American journal of physical medicine &amp; rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2024</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000002455" target="_blank" rel="noopener">10.1097/phm.0000000000002455</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/38363717/" target="_blank" rel="noopener">PMID 38363717</a></span></div>
           </div>
         </div>
 
@@ -540,6 +754,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/10400435.2024.2382113" target="_blank" rel="noopener">10.1080/10400435.2024.2382113</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -555,6 +770,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/sla.0000000000006312" target="_blank" rel="noopener">10.1097/sla.0000000000006312</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -570,6 +786,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1126/science.adr4523" target="_blank" rel="noopener">10.1126/science.adr4523</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -585,6 +802,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/ojemb.2024.3358562" target="_blank" rel="noopener">10.1109/ojemb.2024.3358562</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -600,6 +818,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/jimaging10050103" target="_blank" rel="noopener">10.3390/jimaging10050103</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -613,7 +832,7 @@
               aria-expanded="false" aria-controls="pubs-2023">
               <div>
                 <span class="pub-year-label">2023</span>
-                <span class="pub-count">(12)</span>
+                <span class="pub-count">(15)</span>
               </div>
               <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
             </button>
@@ -633,6 +852,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1371/journal.pdig.0000275" target="_blank" rel="noopener">10.1371/journal.pdig.0000275</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -648,6 +868,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/iros55552.2023.10342139" target="_blank" rel="noopener">10.1109/iros55552.2023.10342139</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="training ai to recognize objects of interest to the blind and low vision community sankarnarayanan t, paciorkowski l, parikh k, hamilton-fletcher g, feng c, sheng d, hudson te, rizzo jr, chan kc annual international conference of the ieee engineering in medicine and biology society. ieee engineering in medicine and biology society. annual international conference 2023 10.1109/embc40787.2023.10340454">
+          <div class="pub-title">Training AI to Recognize Objects of Interest to the Blind and Low Vision Community</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Sankarnarayanan T, Paciorkowski L, Parikh K, Hamilton-Fletcher G, Feng C, Sheng D, Hudson TE, Rizzo JR, Chan KC</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2023</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/embc40787.2023.10340454" target="_blank" rel="noopener">10.1109/embc40787.2023.10340454</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/38082714/" target="_blank" rel="noopener">PMID 38082714</a></span></div>
           </div>
         </div>
 
@@ -663,6 +900,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2023.2187094" target="_blank" rel="noopener">10.1080/17483107.2023.2187094</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="outcomes of a data-driven physician practice redesign mcveigh k, martinez d, fazio j, rizzo td jr, munoz ji the journal of ambulatory care management 2023 10.1097/jac.0000000000000437">
+          <div class="pub-title">Outcomes of a Data-Driven Physician Practice Redesign</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> McVeigh K, Martinez D, Fazio J, Rizzo TD Jr, Munoz JI</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> The Journal of ambulatory care management</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2023</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/jac.0000000000000437" target="_blank" rel="noopener">10.1097/jac.0000000000000437</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/36083181/" target="_blank" rel="noopener">PMID 36083181</a></span></div>
           </div>
         </div>
 
@@ -678,6 +932,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000002228" target="_blank" rel="noopener">10.1097/phm.0000000000002228</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -693,6 +948,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/toh.2023.3308789" target="_blank" rel="noopener">10.1109/toh.2023.3308789</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -708,6 +964,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/rnj.0000000000000435" target="_blank" rel="noopener">10.1097/rnj.0000000000000435</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -723,6 +980,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1145/3597638.3614485" target="_blank" rel="noopener">10.1145/3597638.3614485</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -738,6 +996,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s00221-023-06550-8" target="_blank" rel="noopener">10.1007/s00221-023-06550-8</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -753,6 +1012,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1093/jnci/djad130" target="_blank" rel="noopener">10.1093/jnci/djad130</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -768,6 +1028,23 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/jtehm.2023.3293450" target="_blank" rel="noopener">10.1109/jtehm.2023.3293450</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="augmented reality for perioperative anxiety in patients undergoing surgery: a randomized clinical trial rizzo mg jr, costello jp 2nd, luxenburg d, cohen jl, alberti n, kaplan ld jama network open 2023 10.1001/jamanetworkopen.2023.29310">
+          <div class="pub-title">Augmented Reality for Perioperative Anxiety in Patients Undergoing Surgery: A Randomized Clinical Trial</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Rizzo MG Jr, Costello JP 2nd, Luxenburg D, Cohen JL, Alberti N, Kaplan LD</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> JAMA network open</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2023</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1001/jamanetworkopen.2023.29310" target="_blank" rel="noopener">10.1001/jamanetworkopen.2023.29310</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/37589975/" target="_blank" rel="noopener">PMID 37589975</a></span></div>
           </div>
         </div>
 
@@ -783,6 +1060,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fnhum.2023.1110531" target="_blank" rel="noopener">10.3389/fnhum.2023.1110531</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -798,6 +1076,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1186/s13063-023-07173-8" target="_blank" rel="noopener">10.1186/s13063-023-07173-8</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -831,6 +1110,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/s22228894" target="_blank" rel="noopener">10.3390/s22228894</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -846,6 +1126,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> No DOI</span>
             </div>
+            
           </div>
         </div>
 
@@ -861,6 +1142,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2022.120150" target="_blank" rel="noopener">10.1016/j.jns.2022.120150</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -876,6 +1158,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/s22176533" target="_blank" rel="noopener">10.3390/s22176533</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -891,6 +1174,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/access.2022.3157876" target="_blank" rel="noopener">10.1109/access.2022.3157876</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -906,6 +1190,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2022.120445" target="_blank" rel="noopener">10.1016/j.jns.2022.120445</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -921,6 +1206,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001847" target="_blank" rel="noopener">10.1097/phm.0000000000001847</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -936,6 +1222,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1117/12.2612097" target="_blank" rel="noopener">10.1117/12.2612097</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -951,6 +1238,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001752" target="_blank" rel="noopener">10.1097/phm.0000000000001752</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -966,6 +1254,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1101/2022.02.25.481922" target="_blank" rel="noopener">10.1101/2022.02.25.481922</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -981,6 +1270,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2022.120436" target="_blank" rel="noopener">10.1016/j.jns.2022.120436</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -996,6 +1286,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s10055-022-00691-x" target="_blank" rel="noopener">10.1007/s10055-022-00691-x</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1011,6 +1302,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1145/3491102.3501989" target="_blank" rel="noopener">10.1145/3491102.3501989</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1024,7 +1316,7 @@
               aria-expanded="false" aria-controls="pubs-2021">
               <div>
                 <span class="pub-year-label">2021</span>
-                <span class="pub-count">(10)</span>
+                <span class="pub-count">(13)</span>
               </div>
               <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
             </button>
@@ -1044,6 +1336,55 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1145/3417518" target="_blank" rel="noopener">10.1145/3417518</a></span>
             </div>
+            
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="the 50 most cited articles in meniscal injury research damodar d, plotsker e, greif d, rizzo mg jr, baraga mg, kaplan ld orthopaedic journal of sports medicine 2021 10.1177/2325967121994909">
+          <div class="pub-title">The 50 Most Cited Articles in Meniscal Injury Research</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Damodar D, Plotsker E, Greif D, Rizzo MG Jr, Baraga MG, Kaplan LD</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Orthopaedic journal of sports medicine</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2021</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1177/2325967121994909" target="_blank" rel="noopener">10.1177/2325967121994909</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/33889642/" target="_blank" rel="noopener">PMID 33889642</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="rapid yet thorough bedside assessment of eye-hand coordination rizzo jr, beheshti m, magasi s, branch coslett h, amorapanth p archives of physical medicine and rehabilitation 2021 10.1016/j.apmr.2020.10.109">
+          <div class="pub-title">Rapid Yet Thorough Bedside Assessment of Eye-Hand Coordination</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Rizzo JR, Beheshti M, Magasi S, Branch Coslett H, Amorapanth P</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Archives of physical medicine and rehabilitation</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2021</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.apmr.2020.10.109" target="_blank" rel="noopener">10.1016/j.apmr.2020.10.109</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/33308830/" target="_blank" rel="noopener">PMID 33308830</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="nyu-vpr: long-term visual place recognition benchmark with view direction and data anonymization influences sheng d, chai y, li x, feng c, lin j, silva c, rizzo jr proceedings of the ... ieee/rsj international conference on intelligent robots and systems. ieee/rsj international conference on intelligent robots and systems 2021 10.1109/iros51168.2021.9636640">
+          <div class="pub-title">NYU-VPR: Long-Term Visual Place Recognition Benchmark with View Direction and Data Anonymization Influences</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Sheng D, Chai Y, Li X, Feng C, Lin J, Silva C, Rizzo JR</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Proceedings of the ... IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE/RSJ International Conference on Intelligent Robots and Systems</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2021</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/iros51168.2021.9636640" target="_blank" rel="noopener">10.1109/iros51168.2021.9636640</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/35999910/" target="_blank" rel="noopener">PMID 35999910</a></span></div>
           </div>
         </div>
 
@@ -1059,6 +1400,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.5334/tohm.652" target="_blank" rel="noopener">10.5334/tohm.652</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1074,6 +1416,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3390/brainsci11121571" target="_blank" rel="noopener">10.3390/brainsci11121571</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1089,6 +1432,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/02699052.2021.1878554" target="_blank" rel="noopener">10.1080/02699052.2021.1878554</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1104,6 +1448,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s10827-021-00785-6" target="_blank" rel="noopener">10.1007/s10827-021-00785-6</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1119,6 +1464,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1167/jov.21.6.8" target="_blank" rel="noopener">10.1167/jov.21.6.8</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1134,6 +1480,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1002/pmrj.12541" target="_blank" rel="noopener">10.1002/pmrj.12541</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1149,6 +1496,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.parkreldis.2021.01.013" target="_blank" rel="noopener">10.1016/j.parkreldis.2021.01.013</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1164,6 +1512,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1117/12.2581441" target="_blank" rel="noopener">10.1117/12.2581441</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1179,6 +1528,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001544" target="_blank" rel="noopener">10.1097/phm.0000000000001544</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1212,6 +1562,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001497" target="_blank" rel="noopener">10.1097/phm.0000000000001497</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1227,6 +1578,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2020.116953" target="_blank" rel="noopener">10.1016/j.jns.2020.116953</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1242,6 +1594,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/17483107.2020.1854876" target="_blank" rel="noopener">10.1080/17483107.2020.1854876</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1257,6 +1610,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1186/s40673-020-00123-z" target="_blank" rel="noopener">10.1186/s40673-020-00123-z</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1272,6 +1626,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.94.15_supplement.266" target="_blank" rel="noopener">10.1212/wnl.94.15_supplement.266</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1287,6 +1642,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.94.15_supplement.264" target="_blank" rel="noopener">10.1212/wnl.94.15_supplement.264</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1302,6 +1658,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2020.116680" target="_blank" rel="noopener">10.1016/j.jns.2020.116680</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1317,6 +1674,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.parkreldis.2020.06.163" target="_blank" rel="noopener">10.1016/j.parkreldis.2020.06.163</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1332,6 +1690,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001508" target="_blank" rel="noopener">10.1097/phm.0000000000001508</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1347,6 +1706,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1002/ana.25875" target="_blank" rel="noopener">10.1002/ana.25875</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1362,6 +1722,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1117/12.2558306" target="_blank" rel="noopener">10.1117/12.2558306</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1377,6 +1738,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/services48979.2020.00013" target="_blank" rel="noopener">10.1109/services48979.2020.00013</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1410,6 +1772,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0000000000001269" target="_blank" rel="noopener">10.1097/phm.0000000000001269</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1425,6 +1788,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2019.04.036" target="_blank" rel="noopener">10.1016/j.jns.2019.04.036</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1440,6 +1804,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/bs.pbr.2019.01.002" target="_blank" rel="noopener">10.1016/bs.pbr.2019.01.002</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1455,6 +1820,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.patrec.2017.09.041" target="_blank" rel="noopener">10.1016/j.patrec.2017.09.041</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1470,6 +1836,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/wno.0000000000000726" target="_blank" rel="noopener">10.1097/wno.0000000000000726</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1485,6 +1852,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/bs.pbr.2019.04.013" target="_blank" rel="noopener">10.1016/bs.pbr.2019.04.013</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1500,6 +1868,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/bs.pbr.2019.04.016" target="_blank" rel="noopener">10.1016/bs.pbr.2019.04.016</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1515,6 +1884,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1055/s-0039-1698742" target="_blank" rel="noopener">10.1055/s-0039-1698742</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1530,6 +1900,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3791/58885" target="_blank" rel="noopener">10.3791/58885</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1545,6 +1916,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.92.15_supplement.p2.8-013" target="_blank" rel="noopener">10.1212/wnl.92.15_supplement.p2.8-013</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1560,6 +1932,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3233/jpd-2d199900" target="_blank" rel="noopener">10.3233/jpd-2d199900</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1575,6 +1948,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/iros40897.2019.8967647" target="_blank" rel="noopener">10.1109/iros40897.2019.8967647</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1608,6 +1982,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.ctim.2018.07.011" target="_blank" rel="noopener">10.1016/j.ctim.2018.07.011</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1623,6 +1998,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/02699052.2017.1374469" target="_blank" rel="noopener">10.1080/02699052.2017.1374469</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1638,6 +2014,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.90.15_supplement.p2.169" target="_blank" rel="noopener">10.1212/wnl.90.15_supplement.p2.169</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1653,6 +2030,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2018.02.031" target="_blank" rel="noopener">10.1016/j.jns.2018.02.031</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1668,6 +2046,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/02699052.2018.1510543" target="_blank" rel="noopener">10.1080/02699052.2018.1510543</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1683,6 +2062,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.90.15_supplement.s16.004" target="_blank" rel="noopener">10.1212/wnl.90.15_supplement.s16.004</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1698,6 +2078,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/wno.0000000000000533" target="_blank" rel="noopener">10.1097/wno.0000000000000533</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1713,6 +2094,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.90.15_supplement.p1.004" target="_blank" rel="noopener">10.1212/wnl.90.15_supplement.p1.004</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1728,6 +2110,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.90.15_supplement.s16.003" target="_blank" rel="noopener">10.1212/wnl.90.15_supplement.s16.003</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1743,6 +2126,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2018.08.019" target="_blank" rel="noopener">10.1016/j.jns.2018.08.019</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1758,6 +2142,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/wno.0000000000000681" target="_blank" rel="noopener">10.1097/wno.0000000000000681</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1773,6 +2158,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/wno.0000000000000662" target="_blank" rel="noopener">10.1097/wno.0000000000000662</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1788,6 +2174,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/toh.2017.2781244" target="_blank" rel="noopener">10.1109/toh.2017.2781244</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1803,6 +2190,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/10400435.2017.1312634" target="_blank" rel="noopener">10.1080/10400435.2017.1312634</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1818,6 +2206,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.90.15_supplement.p2.154" target="_blank" rel="noopener">10.1212/wnl.90.15_supplement.p2.154</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1851,6 +2240,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> No DOI</span>
             </div>
+            
           </div>
         </div>
 
@@ -1866,6 +2256,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.88.16_supplement.p6.038" target="_blank" rel="noopener">10.1212/wnl.88.16_supplement.p6.038</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1881,6 +2272,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fneur.2017.00227" target="_blank" rel="noopener">10.3389/fneur.2017.00227</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1896,6 +2288,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.rehab.2016.10.004" target="_blank" rel="noopener">10.1016/j.rehab.2016.10.004</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1911,6 +2304,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.4028/www.scientific.net/ast.100.172" target="_blank" rel="noopener">10.4028/www.scientific.net/ast.100.172</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1926,6 +2320,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/icmsao.2017.7934891" target="_blank" rel="noopener">10.1109/icmsao.2017.7934891</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1941,6 +2336,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.88.16_supplement.p6.040" target="_blank" rel="noopener">10.1212/wnl.88.16_supplement.p6.040</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1956,6 +2352,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.88.16_supplement.p6.036" target="_blank" rel="noopener">10.1212/wnl.88.16_supplement.p6.036</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1971,6 +2368,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2016.10.044" target="_blank" rel="noopener">10.1016/j.jns.2016.10.044</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -1986,6 +2384,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.88.16_supplement.p6.037" target="_blank" rel="noopener">10.1212/wnl.88.16_supplement.p6.037</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2001,6 +2400,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.88.16_supplement.p6.039" target="_blank" rel="noopener">10.1212/wnl.88.16_supplement.p6.039</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2016,6 +2416,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fneur.2017.00330" target="_blank" rel="noopener">10.3389/fneur.2017.00330</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2031,6 +2432,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fneur.2017.00012" target="_blank" rel="noopener">10.3389/fneur.2017.00012</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2046,6 +2448,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.3389/fneur.2017.00429" target="_blank" rel="noopener">10.3389/fneur.2017.00429</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2061,6 +2464,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s00415-017-8484-1" target="_blank" rel="noopener">10.1007/s00415-017-8484-1</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2076,6 +2480,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/iccvw.2017.177" target="_blank" rel="noopener">10.1109/iccvw.2017.177</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2091,6 +2496,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1167/17.9.10" target="_blank" rel="noopener">10.1167/17.9.10</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2124,6 +2530,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.i13.003" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.i13.003</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2139,10 +2546,11 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.i13.002" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.i13.002</a></span>
             </div>
+            
           </div>
         </div>
 
-        <div class="publication pub-card" data-search="the ocular motor underpinnings of rapid number-naming as a sideline performance measure for concussion[meeting abstract] birkemeier, joel; hudson, todd; rizzo, john-ross; dai, weiwei; selesnick, ivan; hasanaj, linens; balcer, laura; galetta, steven; rucker, janet neurology 2016 10.1212/wnl.86.16_supplement.i13.005">
+        <div class="publication pub-card" data-search="the ocular motor underpinnings of rapid number-naming as a sideline performance measure for concussion[meeting abstract] birkemeier, joel; hudson, todd; rizzo, john-ross; dai, weiwei; selesnick, ivan; hasanaj, linens; balcer, laura; galetta, steven; rucker, janet neurology 2016 10.1212/wnl.86.16_supplement.p6.310">
           <div class="pub-title">The Ocular Motor Underpinnings of Rapid Number-Naming as a Sideline Performance Measure for Concussion[Meeting Abstract]</div>
 
           <div class="pub-meta">
@@ -2152,8 +2560,9 @@
 
             <div class="meta-item meta-doi">
               <i class="fas fa-link"></i>
-              <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.i13.005" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.i13.005</a></span>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.p6.310" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.p6.310</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2169,6 +2578,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1002/acn3.345" target="_blank" rel="noopener">10.1002/acn3.345</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2184,6 +2594,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.i13.006" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.i13.006</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2199,6 +2610,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.jns.2016.01.045" target="_blank" rel="noopener">10.1016/j.jns.2016.01.045</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2214,6 +2626,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1152/jn.00639.2015" target="_blank" rel="noopener">10.1152/jn.00639.2015</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2229,6 +2642,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1212/wnl.86.16_supplement.p6.317" target="_blank" rel="noopener">10.1212/wnl.86.16_supplement.p6.317</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2244,6 +2658,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1109/spmb.2016.7846860" target="_blank" rel="noopener">10.1109/spmb.2016.7846860</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2259,6 +2674,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1682/jrrd.2015.06.0113" target="_blank" rel="noopener">10.1682/jrrd.2015.06.0113</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2292,6 +2708,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1093/brain/awv282" target="_blank" rel="noopener">10.1093/brain/awv282</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2307,6 +2724,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.apmr.2014.12.004" target="_blank" rel="noopener">10.1016/j.apmr.2014.12.004</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2322,6 +2740,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.rehab.2014.12.005" target="_blank" rel="noopener">10.1016/j.rehab.2014.12.005</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2337,6 +2756,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/978-1-4939-2462-2_2" target="_blank" rel="noopener">10.1007/978-1-4939-2462-2_2</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2352,6 +2772,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.14814/phy2.12650" target="_blank" rel="noopener">10.14814/phy2.12650</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2367,6 +2788,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.rehab.2014.11.003" target="_blank" rel="noopener">10.1016/j.rehab.2014.11.003</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2382,6 +2804,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.pmrj.2014.11.007" target="_blank" rel="noopener">10.1016/j.pmrj.2014.11.007</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2415,6 +2838,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/978-1-4614-5419-9_15" target="_blank" rel="noopener">10.1007/978-1-4614-5419-9_15</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2430,6 +2854,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/978-1-4614-5419-9_13" target="_blank" rel="noopener">10.1007/978-1-4614-5419-9_13</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2445,6 +2870,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/978-1-4614-5419-9_17" target="_blank" rel="noopener">10.1007/978-1-4614-5419-9_17</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2478,6 +2904,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1176/appi.books.9781585624201.js23" target="_blank" rel="noopener">10.1176/appi.books.9781585624201.js23</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2493,6 +2920,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1097/phm.0b013e3182241618" target="_blank" rel="noopener">10.1097/phm.0b013e3182241618</a></span>
             </div>
+            
           </div>
         </div>
 
@@ -2508,6 +2936,157 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.pmrj.2011.08.513" target="_blank" rel="noopener">10.1016/j.pmrj.2011.08.513</a></span>
             </div>
+            
+          </div>
+        </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-year-group">
+            <button class="pub-year-toggle" type="button"
+              data-toggle="collapse" data-target="#pubs-2003"
+              aria-expanded="false" aria-controls="pubs-2003">
+              <div>
+                <span class="pub-year-label">2003</span>
+                <span class="pub-count">(1)</span>
+              </div>
+              <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
+            </button>
+
+            <div id="pubs-2003" class="collapse ">
+              <div class="pub-year-body">
+
+        <div class="publication pub-card" data-search="prevention and treatment of ankle sprain in athletes osborne md, rizzo td jr sports medicine (auckland, n.z.) 2003 10.2165/00007256-200333150-00005">
+          <div class="pub-title">Prevention and treatment of ankle sprain in athletes</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Osborne MD, Rizzo TD Jr</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Sports medicine (Auckland, N.Z.)</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 2003</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.2165/00007256-200333150-00005" target="_blank" rel="noopener">10.2165/00007256-200333150-00005</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/14719982/" target="_blank" rel="noopener">PMID 14719982</a></span></div>
+          </div>
+        </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-year-group">
+            <button class="pub-year-toggle" type="button"
+              data-toggle="collapse" data-target="#pubs-1996"
+              aria-expanded="false" aria-controls="pubs-1996">
+              <div>
+                <span class="pub-year-label">1996</span>
+                <span class="pub-count">(3)</span>
+              </div>
+              <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
+            </button>
+
+            <div id="pubs-1996" class="collapse ">
+              <div class="pub-year-body">
+
+        <div class="publication pub-card" data-search="sidestepping burners: a preseason strategy laskowski er, nissen sj, rizzo td jr the physician and sportsmedicine 1996 10.3810/psm.1996.06.1380">
+          <div class="pub-title">Sidestepping burners: a preseason strategy</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Laskowski ER, Nissen SJ, Rizzo TD Jr</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> The Physician and sportsmedicine</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 1996</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.3810/psm.1996.06.1380" target="_blank" rel="noopener">10.3810/psm.1996.06.1380</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/20086996/" target="_blank" rel="noopener">PMID 20086996</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="burner syndrome: recognition and rehabilitation nissen sj, laskowski er, rizzo td jr the physician and sportsmedicine 1996 10.3810/psm.1996.06.1378">
+          <div class="pub-title">Burner syndrome: recognition and rehabilitation</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Nissen SJ, Laskowski ER, Rizzo TD Jr</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> The Physician and sportsmedicine</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 1996</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.3810/psm.1996.06.1378" target="_blank" rel="noopener">10.3810/psm.1996.06.1378</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/20086995/" target="_blank" rel="noopener">PMID 20086995</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="burner syndrome nissen sj, laskowski er, rizzo td jr the physician and sportsmedicine 1996 10.1080/00913847.1996.11947969">
+          <div class="pub-title">Burner Syndrome</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Nissen SJ, Laskowski ER, Rizzo TD Jr</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> The Physician and sportsmedicine</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 1996</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1080/00913847.1996.11947969" target="_blank" rel="noopener">10.1080/00913847.1996.11947969</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/29275698/" target="_blank" rel="noopener">PMID 29275698</a></span></div>
+          </div>
+        </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-year-group">
+            <button class="pub-year-toggle" type="button"
+              data-toggle="collapse" data-target="#pubs-1992"
+              aria-expanded="false" aria-controls="pubs-1992">
+              <div>
+                <span class="pub-year-label">1992</span>
+                <span class="pub-count">(2)</span>
+              </div>
+              <span class="pub-chevron"><i class="fas fa-chevron-down"></i></span>
+            </button>
+
+            <div id="pubs-1992" class="collapse ">
+              <div class="pub-year-body">
+
+        <div class="publication pub-card" data-search="nonoperative management of multilevel lumbar disk herniations in an adolescent athlete weinert am jr, rizzo td jr mayo clinic proceedings 1992 10.1016/s0025-6196(12)61314-7">
+          <div class="pub-title">Nonoperative management of multilevel lumbar disk herniations in an adolescent athlete</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Weinert AM Jr, Rizzo TD Jr</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> Mayo Clinic proceedings</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 1992</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1016/s0025-6196(12)61314-7" target="_blank" rel="noopener">10.1016/s0025-6196(12)61314-7</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/1545577/" target="_blank" rel="noopener">PMID 1545577</a></span></div>
+          </div>
+        </div>
+
+        <div class="publication pub-card" data-search="injuries in adolescent and preadolescent boys at two large wrestling tournaments lorish tr, rizzo td jr, ilstrup dm, scott sg the american journal of sports medicine 1992 10.1177/036354659202000218">
+          <div class="pub-title">Injuries in adolescent and preadolescent boys at two large wrestling tournaments</div>
+
+          <div class="pub-meta">
+            <div class="meta-item"><i class="fas fa-user-edit"></i><span><strong>Authors:</strong> Lorish TR, Rizzo TD Jr, Ilstrup DM, Scott SG</span></div>
+            <div class="meta-item"><i class="fas fa-book"></i><span><strong>Journal:</strong> The American journal of sports medicine</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span><strong>Year:</strong> 1992</span></div>
+
+            <div class="meta-item meta-doi">
+              <i class="fas fa-link"></i>
+              <span><strong>DOI:</strong> <a href="https://doi.org/10.1177/036354659202000218" target="_blank" rel="noopener">10.1177/036354659202000218</a></span>
+            </div>
+            <div class="meta-item"><i class="fas fa-external-link-alt"></i><span><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/1558249/" target="_blank" rel="noopener">PMID 1558249</a></span></div>
           </div>
         </div>
 
@@ -2541,6 +3120,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> No DOI</span>
             </div>
+            
           </div>
         </div>
 
@@ -2556,6 +3136,7 @@
               <i class="fas fa-link"></i>
               <span><strong>DOI:</strong> No DOI</span>
             </div>
+            
           </div>
         </div>
 
@@ -2569,55 +3150,157 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer id="footer" class="footer">
   <div class="footer-main">
     <div class="container">
+
       <div class="row">
 
-        <div class="col-lg-4 footer-widget">
+        <!-- Column 1: Contact -->
+        <div class="col-lg-4 col-md-6 footer-widget">
           <h3 class="widget-title">Contact</h3>
-          <p>
-            NYU Langone Ambulatory Care Center<br>
-            Rusk Rehabilitation<br>
-            240 E 38th St, 17th Floor<br>
-            New York, NY 10016
-          </p>
-          <p><a href="mailto:jr.rizzo@nyulangone.org">jr.rizzo@nyulangone.org</a></p>
+
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2">
+              <i class="fa fa-map-marker-alt mr-2" aria-hidden="true"></i>
+              <span>
+                <strong>Location</strong><br>
+                NYU Langone Ambulatory Care Center<br>
+                Rusk Rehabilitation<br>
+                240 E 38th St, 17th Floor,<br>
+                New York, NY 10016
+              </span>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:JohnRoss.Rizzo@nyulangone.org">JohnRoss.Rizzo@nyulangone.org</a>
+            </li>
+
+            <li class="mb-2">
+              <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+              <a href="mailto:mahya.beheshti@nyulangone.org">mahya.beheshti@nyulangone.org</a>
+            </li>
+          </ul>
+
+          <div class="footer-social">
+            <h3 class="widget-title">Connect</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="d-inline-block">
+                <a aria-label="LinkedIn"
+                   href="https://www.linkedin.com/in/jr-rizzo-3b447125/"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="X"
+                   href="https://x.com/jrrizzo00"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="d-inline-block">
+                <a aria-label="GitHub"
+                   href="https://github.com/rizzojr01"
+                   target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="col-lg-4 footer-widget">
+        <!-- Column 2: Map -->
+        <div class="col-lg-4 col-md-6 footer-widget">
           <h3 class="widget-title">Map</h3>
-          <iframe
-            loading="lazy"
-            style="border:0;width:100%;height:200px;"
-            src="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016&output=embed">
-          </iframe>
-        </div>
 
-        <div class="col-lg-4 footer-widget">
-          <h3 class="widget-title">Follow</h3>
-          <p>
-            <a href="https://www.linkedin.com/in/jr-rizzo-3b447125/">LinkedIn</a><br>
-            <a href="https://github.com/rizzojr01">GitHub</a>
+          <div class="footer-map-wrapper">
+            <iframe
+              title="Rizzo Labs map"
+              class="footer-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016&output=embed">
+            </iframe>
+          </div>
+
+          <p class="mt-3 mb-0">
+            <a class="read-more"
+               href="https://www.google.com/maps?q=240%20E%2038th%20St%2017th%20Floor%20New%20York%20NY%2010016"
+               target="_blank" rel="noopener">
+              Open in Google Maps
+            </a>
           </p>
         </div>
 
+        <!-- Column 3: Subscription -->
+        <div class="col-lg-4 col-md-12 footer-widget">
+          <h3 class="widget-title">Stay Updated</h3>
+
+          <p class="mb-3">Subscribe to receive:</p>
+          <ul class="list-unstyled mb-3" style="font-size:0.9rem; color:#ccc;">
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Publication alerts for new manuscripts from our lab</li>
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>News on lab milestones, talks, and events</li>
+            <li class="mb-1"><i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Invitations to participate in studies we are actively recruiting for</li>
+          </ul>
+
+          <form class="footer-newsletter" id="mc-form" novalidate>
+            <div class="form-group mb-2">
+              <label class="sr-only" for="mc-email">Email</label>
+              <input
+                id="mc-email"
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Subscribe
+            </button>
+
+            <small id="mc-message" class="d-block mt-2 footer-note"></small>
+          </form>
+
+          <small class="d-block mt-2 footer-note">No spam. Unsubscribe anytime.</small>
+        </div>
+
+      </div><!--/ Row end -->
+
+    </div><!--/ Container end -->
+  </div><!--/ Footer main end -->
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+          <div class="copyright-info">
+            <span>Copyright &copy; <span id="footer-year">2024</span> Rizzo Labs</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="copyright text-center">
-    &copy; <span id="year"></span> Rizzo Lab
-  </div>
 </footer>
+<!-- End Footer -->
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
 </script>
 
+<!-- Scripts -->
 <script src="plugins/jQuery/jquery.min.js"></script>
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/slick/slick-animation.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox.js"></script>
+<script src="plugins/shuffle/shuffle.min.js" defer></script>
 <script src="js/script.js"></script>
+
+<script src="accessibility.js"></script>
 
 <script>
   (function () {
@@ -2668,6 +3351,5 @@
   })();
 </script>
 
-<script src="accessibility.js"></script>
 </body>
 </html>
